@@ -24,6 +24,9 @@ public class IndexController {
 		this.result = result;
 	}
 
+	/*
+	 * Método de acesso a página inicial.
+	 */
 	@Path("/")
 	public void index() {
 		result.include("variable", "VRaptor!");
