@@ -25,7 +25,7 @@ public class IndexController {
 	}
 
 	/*
-	 * Método de acesso a página inicial.
+	 * Método de acesso a página idex.jsp.
 	 */
 	@Path("/")
 	public void index() {
