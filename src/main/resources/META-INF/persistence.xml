@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="SistemaEscolar" transaction-type="RESOURCE_LOCAL">
+		<!-- provedor/implementacao do JPA -->		
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<class>br.com.sistemaescolar.modelo.Aluno</class>
+		<class>br.com.sistemaescolar.modelo.Boletim</class>
+		<class>br.com.sistemaescolar.modelo.Boleto</class>
+		<class>br.com.sistemaescolar.modelo.Caixa</class>
+		<class>br.com.sistemaescolar.modelo.Cep</class>
+		<class>br.com.sistemaescolar.modelo.Cidade</class>
+		<class>br.com.sistemaescolar.modelo.Curso</class>
+		<class>br.com.sistemaescolar.modelo.Disciplina</class>
+		<class>br.com.sistemaescolar.modelo.Endereco</class>
+		<class>br.com.sistemaescolar.modelo.Frequencia</class>
+		<class>br.com.sistemaescolar.modelo.Funcionario</class>
+		<class>br.com.sistemaescolar.modelo.Instituicao</class>
+		<class>br.com.sistemaescolar.modelo.Matricula</class>
+		<class>br.com.sistemaescolar.modelo.PagamentoFuncionario</class>
+		<class>br.com.sistemaescolar.modelo.PagamentoMensalidade</class>
+		<class>br.com.sistemaescolar.modelo.PagamentoProfessor</class>
+		<class>br.com.sistemaescolar.modelo.PrimeiroBimestre</class>
+		<class>br.com.sistemaescolar.modelo.Professor</class>
+		<class>br.com.sistemaescolar.modelo.QuartoBimestre</class>
+		<class>br.com.sistemaescolar.modelo.SegundoBimestre</class>
+		<class>br.com.sistemaescolar.modelo.TerceiroBimestre</class>
+		<class>br.com.sistemaescolar.modelo.Turma</class>
+		<class>br.com.sistemaescolar.modelo.Uf</class>
+		<class>br.com.sistemaescolar.modelo.Users</class>			
+		
+		<properties>
+			<!-- dados da conexao -->
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/sistemaescolar" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="123654" />
+
+			<!-- propriedades do hibernate -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+
+			<!-- atualiza o banco, gera as tabelas se for preciso -->
+			<property name="hibernate.hbm2ddl.auto" value="create" />
+
+		</properties>
+
+
+	</persistence-unit>
+</persistence>
