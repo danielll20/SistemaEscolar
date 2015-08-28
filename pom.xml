@@ -35,8 +35,8 @@
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
-			<version>1</version>					
-		</dependency>		
+			<version>1</version>
+		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
@@ -84,6 +84,12 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.3.11.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator-cdi</artifactId>
+			<version>5.0.1.Final</version>
 		</dependency>
 
 	</dependencies>
