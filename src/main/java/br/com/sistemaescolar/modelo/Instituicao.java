@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
- * @author Leonardo
+ * @author Leonardo Ribeiro
  *
  */
 @Entity
