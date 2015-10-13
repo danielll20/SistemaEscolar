@@ -4,7 +4,7 @@
 
 .body{
 	/* Cor de fundo do corpo da página */
-	background-color: #fff;	
+	background-color: aqua;	
 }
 
 /* Tamanho do calendário jquery (datepicker)*/
@@ -31,7 +31,7 @@ div.ui-datepicker {
 
 .tituloCadastro{
 /* 	border: solid 1px black; */
-	margin-top: -15px;	
+	margin-top: -15px;		
 }
 
 .textoUsuario{
@@ -39,4 +39,5 @@ div.ui-datepicker {
 	margin-top: 15px;
 	margin-left: 100px;
 }
+
 

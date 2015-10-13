@@ -240,6 +240,7 @@ th {
   }
   .navbar {
     display: none;
+    border: solid 1 px black;
   }
   .btn > .caret,
   .dropup > .btn > .caret {
@@ -1411,7 +1412,7 @@ a.bg-danger:focus {
 .page-header {
   padding-bottom: 9px;
   margin: 40px 0 20px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 2px solid #cccccc;  
 }
 ul,
 ol {
@@ -4547,7 +4548,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 /*   background-color: #f8f8f8; */
 /*   border-color: #e7e7e7; */
   background-color: #337ab7;
-  border-color: #2e6da4;
+  border-color: #2e6da4;  
 }
 .navbar-default .navbar-brand {
 /*   color: #777; */
