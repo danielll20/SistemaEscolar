@@ -1,0 +1,42 @@
+@CHARSET "ISO-8859-1";
+
+
+
+.body{
+	/* Cor de fundo do corpo da página */
+	background-color: #fff;	
+}
+
+/* Tamanho do calendário jquery (datepicker)*/
+div.ui-datepicker {
+	font-size: 10px;
+}
+
+/* Botões enviar e cancelar */
+.botoes{
+	margin-left: 185px;
+}
+
+.rodape{	
+	border: solid 1px aqua;
+	background-color: #337ab7;	
+	
+}
+
+.textoFooter{
+	margin-left: 50px;
+	margin-top: 10px;
+	color: #fff;
+}
+
+.tituloCadastro{
+/* 	border: solid 1px black; */
+	margin-top: -15px;	
+}
+
+.textoUsuario{
+	color: #fff;
+	margin-top: 15px;
+	margin-left: 100px;
+}
+
