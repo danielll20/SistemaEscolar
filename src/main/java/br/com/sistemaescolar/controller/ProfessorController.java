@@ -13,7 +13,7 @@ import br.com.sistemaescolar.modelo.Professor;
 import br.com.sistemaescolar.service.ProfessorService;
 
 /**
- * @author Leonardo Ribeiro
+ * @author Leonardo Ribeiro 
  * @since 15/10/2015
  */
 @Controller
