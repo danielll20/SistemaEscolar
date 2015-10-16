@@ -4,12 +4,12 @@
 
 .body{
 	/* Cor de fundo do corpo da página */
-	background-color: aqua;	
+	background-color: #fff;		
 }
 
 /* Tamanho do calendário jquery (datepicker)*/
 div.ui-datepicker {
-	font-size: 10px;
+	font-size: 15px;
 }
 
 /* Botões enviar e cancelar */
