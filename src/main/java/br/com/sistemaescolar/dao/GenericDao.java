@@ -55,10 +55,10 @@ public class GenericDao {
 	public <E> void delete(E objeto) {
 		entityManager.remove(objeto);
 		entityManager.flush();					
-	}
+	}	
 	
 	/**
-	 * Método genérico para bscar todos os objeto.
+	 * Método genérico para buscar todos os objeto por id.
 	 * 
 	 * @author Daniel Correia
 	 * @param objeto
