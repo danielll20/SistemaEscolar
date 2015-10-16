@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="../layout/menu.jsp"></jsp:include>
 <form action="<c:url value='/professor/adiciona'/>" method="post">
 		<label for="nome">Nome:</label>
 		<input type="text" id="nome" name="professor.nome" /><br />
