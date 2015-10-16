@@ -3,6 +3,8 @@
  */
 package br.com.sistemaescolar.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import br.com.sistemaescolar.dao.AlunoDao;
@@ -22,5 +24,24 @@ public class AlunoService {
 	
 	public void insert(Aluno aluno) {
 		alunoDao.insert(aluno);
+	}
+	
+	public List<Aluno> listarTodos() {
+		return alunoDao.listarTodos();
+	}
+	
+
+	public Aluno buscarPorId(Long id) {				
+		return alunoDao.buscarPorId(id);
+	}
+
+	public void remove(Aluno aluno) {
+		alunoDao.delete(aluno);
+		
+	}
+
+	public void atualizar(Aluno aluno) {
+		alunoDao.update(aluno);
+		
 	}
 }
