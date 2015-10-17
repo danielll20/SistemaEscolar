@@ -10,6 +10,7 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.sistemaescolar.modelo.Turma;
+import br.com.sistemaescolar.service.CursoService;
 import br.com.sistemaescolar.service.TurmaService;
 
 /**
@@ -18,21 +19,26 @@ import br.com.sistemaescolar.service.TurmaService;
  */
 @Controller
 public class TurmaController {
-	
+
 	@Inject
 	private TurmaService turmaService;
 	
 	@Inject
+	private CursoService cursoService;
+
+	@Inject
 	private Result result;
-	
+
 	@Path("/turma/novo")
-    public void novo() {        
-    }
-	
+	public void novo() {
+		result.include("cursos", cursoService.listarTodos());
+	}
+
 	@Post
 	public void adiciona(Turma turma) {
 		turmaService.insert(turma);
 		result.redirectTo(TurmaController.class).novo();
 	}
+	
 
 }
