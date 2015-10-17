@@ -35,7 +35,7 @@ public class Turma {
 	@Column(name = "NOME")
 	private String nome;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "ID_CURSO")
 	private Curso curso;
 
