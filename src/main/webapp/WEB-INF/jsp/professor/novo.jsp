@@ -58,10 +58,6 @@
 		<label for="valorTotal">Valor Total:</label>
 		<input type="text" id="valorTotal" name="professor.valorTotal" /><br />
 		
-		<select name ="disciplina.professores"size ="1">
-		<option value ="">Professor desta disciplina</option>
-		</select>		
-					
 		<input type="submit" value="Salvar" />
 	</form>
 
