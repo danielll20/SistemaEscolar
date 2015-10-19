@@ -13,13 +13,7 @@
 		<input type="text" id="nome" name="disciplina.nome" /><br />	
 		
 		<label for="cargaHoraria">Carga Horária:</label>
-		<input type="text" id="cargaHoraria" name="disciplina.cargaHoraria" /><br />	
-		
-		
-		
-		<select name ="disciplina.professores"size ="1">
-		<option value ="">Professor desta disciplina</option>
-		</select>
+		<input type="text" id="cargaHoraria" name="disciplina.cargaHoraria" /><br />		
 		
 		<input type="submit" value="Salvar" />
 	</form>
