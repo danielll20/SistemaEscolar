@@ -13,7 +13,7 @@ import br.com.sistemaescolar.modelo.Funcionario;
 import br.com.sistemaescolar.service.FuncionarioService;
 
 /**
- * @author Leonardo Ribeiro
+ * @author Leonardo Ribeiro 
  * @since 19/10/2015
  */
 @Controller
