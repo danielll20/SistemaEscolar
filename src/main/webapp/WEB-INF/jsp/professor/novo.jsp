@@ -57,7 +57,7 @@
 		
 		<label for="valorTotal">Valor Total:</label>
 		<input type="text" id="valorTotal" name="professor.valorTotal" /><br />
-		
+	
 		<input type="submit" value="Salvar" />
 	</form>
 
