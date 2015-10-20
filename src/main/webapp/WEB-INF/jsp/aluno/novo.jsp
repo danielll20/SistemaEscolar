@@ -21,7 +21,7 @@
 	 <jsp:include page="../layout/menu.jsp"></jsp:include>
 	 <h3>Cadastro de Alunos</h3>
     <br><br>  
-	<form action="<c:url value='/aluno/adiciona'/>" method="post" class="form-horizontal">
+	<form action="${url}/aluno/adiciona" method="post" class="form-horizontal">
 		<%@include file="../aluno/form-inputs.jsp" %>		
 		<div class="botoes">
 			<input type="submit" value="Salvar" class="btn btn-primary"/>
