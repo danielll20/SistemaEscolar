@@ -10,6 +10,7 @@
 	<label class="col-sm-2 control-label" for="nome">Curso:</label>
 	<div class="col-sm-5">
 		<select class="selectBox" name='turma.curso.id' id='turma.curso.id'>
+			<option id="curso">Selecione um curso</option>
 			<c:forEach items='${cursos}' var='curso'>
 				<option value='${curso.id}'
 					${curso.id == turma.curso.id ? 'selected' : ''}>${curso.nome}</option>
