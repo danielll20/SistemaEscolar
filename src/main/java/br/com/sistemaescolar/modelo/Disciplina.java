@@ -35,7 +35,7 @@ public class Disciplina {
 	private int cargaHoraria;
 
 	@ManyToMany
-	@JoinTable(name = "PROFESSOR_DISCIPLINA", joinColumns = @JoinColumn(name = "ID_DISCIPLINA"), inverseJoinColumns = @JoinColumn(name = "ID_PROFESSOR"))
+	@JoinTable(name = "ATRIBUICAO_DISCIPLINA", joinColumns = @JoinColumn(name = "ID_DISCIPLINA"), inverseJoinColumns = @JoinColumn(name = "ID_PROFESSOR"))
 	private List<Professor> professores;	
 
 	public Long getId() {
