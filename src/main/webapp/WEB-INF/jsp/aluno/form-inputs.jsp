@@ -1,3 +1,7 @@
+<script type="text/javascript" src="${url}/js/jquery.js" ></script>
+<script type="text/javascript" src="${url}/js/jquery-ui.js"></script>
+<script type="text/javascript" src="${url}/js/calendario-jquery.js"></script>
+
 <div class="form-group">
 	<label class="col-sm-2 control-label" for="nome">Nome:</label>
 	<div class="col-sm-5">
