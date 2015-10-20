@@ -30,7 +30,7 @@
 		<class>br.com.sistemaescolar.modelo.TerceiroBimestre</class>
 		<class>br.com.sistemaescolar.modelo.Turma</class>
 		<class>br.com.sistemaescolar.modelo.Uf</class>
-		<class>br.com.sistemaescolar.modelo.Users</class>			
+		<class>br.com.sistemaescolar.modelo.Usuario</class>			
 		
 		<properties>			
 			<!-- propriedades do hibernate -->
