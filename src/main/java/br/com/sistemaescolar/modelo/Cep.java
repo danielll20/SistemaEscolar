@@ -3,16 +3,11 @@
  */
 package br.com.sistemaescolar.modelo;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -31,10 +26,6 @@ public class Cep {
 	@Column(name = "NUMERO")
 	private String numero;
 
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "ID_CEP")
-	private List<Endereco> endereco;
-
 	public Long getId() {
 		return id;
 	}
@@ -49,14 +40,6 @@ public class Cep {
 
 	public void setNumero(String numero) {
 		this.numero = numero;
-	}
-
-	public List<Endereco> getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(List<Endereco> endereco) {
-		this.endereco = endereco;
 	}
 
 }
