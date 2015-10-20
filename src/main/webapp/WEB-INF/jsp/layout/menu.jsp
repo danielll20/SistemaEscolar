@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="url" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,8 +10,12 @@
 <link rel="stylesheet" href="<c:url value="/css/jquery-ui.css"/>">
 <link rel="stylesheet" href="<c:url value="/css/bootstrap.css"/>">
 
-<script type="text/javascript" src="<c:url value="/js/bootstrap.js"/>" ></script>
-<script type="text/javascript" src="<c:url value="/js/bootstrap.min.js"/>" ></script>
+<script type="text/javascript" src="${url}/js/jquery.js" ></script>
+<script type="text/javascript" src="${url}/js/bootstrap.js"/></script>
+<script type="text/javascript">
+	$('.dropdown-toggle').dropdown();
+</script>
+
  
 
 <title>Insert title here</title>
@@ -34,13 +39,18 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastro <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="<c:url value="/aluno/novo"/>">Aluno</a></li>
-                  <li><a href="#">Disciplina</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
+                  <li><a href="${url}/aluno/novo">Aluno</a></li>
+                  <li><a href="${url}/disciplina/novo">Disciplina</a></li>
+                  <li><a href="${url}/funcionario/novo">Funcionário</a></li>
+                  <li><a href="${url}/instituicao/novo">Instituição</a></li>
+                  <li><a href="${url}/professor/novo">Professor</a></li>
+                  <li><a href="${url}/curso/novo">Curso</a></li>
+                  <li><a href="${url}/turma/novo">Turma</a></li>
+                                    
+<!--                   <li role="separator" class="divider"></li> -->
+<!--                   <li class="dropdown-header">Nav header</li> -->
+<!--                   <li><a href="#">Separated link</a></li> -->
+<!--                   <li><a href="#">One more separated link</a></li> -->
                 </ul>
               </li>              
               <li><a href="#">Relatórios</a></li>       
