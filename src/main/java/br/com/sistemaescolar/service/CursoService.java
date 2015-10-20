@@ -21,4 +21,9 @@ public class CursoService {
 	public List<Curso> listarTodos() {
 		return cursoDao.listarTodos();
 	}
+
+	public void insert(Curso curso) {
+		cursoDao.insert(curso);
+		
+	}
 }
