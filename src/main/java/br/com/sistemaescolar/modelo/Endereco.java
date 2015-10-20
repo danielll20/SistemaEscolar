@@ -1,13 +1,12 @@
 package br.com.sistemaescolar.modelo;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -30,6 +29,18 @@ public class Endereco {
 
 	@Column(name = "BAIRRO")
 	private String bairro;
+
+	@OneToOne
+	@JoinColumn(name = "ID_CIDADE")
+	private Cidade cidade;
+
+	@OneToOne
+	@JoinColumn(name = "ID_UF")
+	private Uf uf;
+
+	@OneToOne
+	@JoinColumn(name = "ID_CEP")
+	private Cep cep;
 
 	public Long getId() {
 		return id;
@@ -70,16 +81,29 @@ public class Endereco {
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
-	
-	public List<Cep> getCep() {
+
+	public Cidade getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
+	}
+
+	public Uf getUf() {
+		return uf;
+	}
+
+	public void setUf(Uf uf) {
+		this.uf = uf;
+	}
+
+	public Cep getCep() {
 		return cep;
 	}
 
-	public void setCep(List<Cep> cep) {
+	public void setCep(Cep cep) {
 		this.cep = cep;
 	}
-
-	@OneToMany
-	private List<Cep> cep;
 
 }
