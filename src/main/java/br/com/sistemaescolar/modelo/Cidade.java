@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * @author DL INFORMATICA - Soluções e serviços em tecnologia
+ * @author DL INFORMATICA - Soluções e serviços em tecnologia.
  *
  */
 @Entity
