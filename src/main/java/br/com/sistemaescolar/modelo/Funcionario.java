@@ -1,5 +1,7 @@
 package br.com.sistemaescolar.modelo;
 
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "FUNCIONARIO")
@@ -18,6 +22,9 @@ public class Funcionario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
 	private Long id;
+	
+	@Column(name = "NOME")
+	private String nome;
 
 	@Column(name = "CPF")
 	private Long cpf;
@@ -52,6 +59,14 @@ public class Funcionario {
 
 	@Column(name = "VALOR_SALARIO")
 	private Double valorSalario;
+	
+	@Temporal(value = TemporalType.DATE)
+	@Column(name = "DATA_CADASTRO")
+	private Date dataCadastro;
+	
+	@Temporal(value = TemporalType.DATE)
+	@Column(name = "DATA_NASCIMENTO")
+	private Date dataNascimento;
 
 	public Long getId() {
 		return id;
@@ -59,6 +74,14 @@ public class Funcionario {
 
 	public void setId(Long id) {
 		this.id = id;
+	}	
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public Long getCpf() {
@@ -149,4 +172,20 @@ public class Funcionario {
 		this.valorSalario = valorSalario;
 	}
 
+	public Date getDataCadastro() {
+		return dataCadastro;
+	}
+
+	public void setDataCadastro(Date dataCadastro) {
+		this.dataCadastro = dataCadastro;
+	}
+
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+		
 }

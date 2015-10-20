@@ -3,6 +3,7 @@
  */
 package br.com.sistemaescolar.modelo;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * @author Leonardo
@@ -72,6 +75,14 @@ public class Professor {
 	
 	@ManyToMany(mappedBy = "professores")
 	private List<Disciplina> disciplinas;
+	
+	@Temporal(value = TemporalType.DATE)
+	@Column(name = "DATA_CADASTRO")
+	private Date dataCadastro;
+	
+	@Temporal(value = TemporalType.DATE)
+	@Column(name = "DATA_NASCIMENTO")
+	private Date dataNascimento;
 
 	public Long getId() {
 		return id;
@@ -192,6 +203,21 @@ public class Professor {
 	public void setDisciplinas(List<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
 	}
-	
-	
+
+	public Date getDataCadastro() {
+		return dataCadastro;
+	}
+
+	public void setDataCadastro(Date dataCadastro) {
+		this.dataCadastro = dataCadastro;
+	}
+
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+		
 }

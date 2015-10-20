@@ -1,5 +1,6 @@
 package br.com.sistemaescolar.modelo;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,15 +31,15 @@ public class Endereco {
 	@Column(name = "BAIRRO")
 	private String bairro;
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name = "ID_CIDADE")
 	private Cidade cidade;
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name = "ID_UF")
 	private Uf uf;
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name = "ID_CEP")
 	private Cep cep;
 
