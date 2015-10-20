@@ -19,12 +19,12 @@
 	 <h3>Cadastro de Turmas</h3>
     <br><br> 
 <form action="${url}/turma/adiciona" method="post" class="form-horizontal">
-		<%@include file="../turma/form-inputs.jsp" %>					
-		<div class="botoes">
-			<input type="submit" value="Salvar" class="btn btn-primary"/>
-			<input type="reset" value="Cancelar" class="btn btn-primary"/>					
-		</div>
-	</form>
+	<%@include file="../turma/form-inputs.jsp" %>					
+	<div class="botoes">
+		<input type="submit" value="Salvar" class="btn btn-primary"/>
+		<input type="reset" value="Cancelar" class="btn btn-primary"/>					
+	</div>
+</form>
 
 </body>
 </html>
