@@ -61,7 +61,10 @@ public class Turma {
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ID_TURMA")
-	List<Matricula> matriculas;
+	List<Matricula> matriculas;	
+	
+	@Column(name = "TURNO")
+	private String turno;
 
 	public Long getId() {
 		return id;
@@ -143,4 +146,12 @@ public class Turma {
 		this.matriculas = matriculas;
 	}
 
+	public String getTurno() {
+		return turno;
+	}
+
+	public void setTurno(String turno) {
+		this.turno = turno;
+	}
+		
 }
