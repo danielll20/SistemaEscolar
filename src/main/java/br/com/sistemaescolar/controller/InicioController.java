@@ -26,6 +26,6 @@ public class InicioController {
 	
 	@Get("/inicio/inicio")
 	public void inicio() {		
-		result.include("listarInstituicao", inicioService.listarInstituicao());
+		result.include("listarInstituicao", inicioService.listarInstituicaoPorNomeFantasia());
 	}
 }
