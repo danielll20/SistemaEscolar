@@ -23,7 +23,8 @@
 		<thead>						  
 		  <tr>		            
 		    <th>Nome</th>
-		    <th>Carga Horária</th>		    
+		    <th>Carga Horária</th>
+		    <th>Ações</th>		    
 		  </tr>
 		</thead>
       
