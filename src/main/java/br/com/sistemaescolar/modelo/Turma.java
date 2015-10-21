@@ -4,16 +4,13 @@
 package br.com.sistemaescolar.modelo;
 
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -58,10 +55,6 @@ public class Turma {
 
 	@Column(name = "NUMERO_VAGAS")
 	private int numeroVagas;
-
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "ID_TURMA")
-	List<Matricula> matriculas;	
 	
 	@Column(name = "TURNO")
 	private String turno;
@@ -136,14 +129,6 @@ public class Turma {
 
 	public void setNumeroVagas(int numeroVagas) {
 		this.numeroVagas = numeroVagas;
-	}
-
-	public List<Matricula> getMatriculas() {
-		return matriculas;
-	}
-
-	public void setMatriculas(List<Matricula> matriculas) {
-		this.matriculas = matriculas;
 	}
 
 	public String getTurno() {
