@@ -34,10 +34,10 @@
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Início</a></li>
+              <li class="active"><a href="${url}/inicio/inicio">Início</a></li>
               
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastro <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastro<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="${url}/aluno/novo">Aluno</a></li>
                   <li><a href="${url}/disciplina/novo">Disciplina</a></li>
@@ -52,7 +52,21 @@
 <!--                   <li><a href="#">Separated link</a></li> -->
 <!--                   <li><a href="#">One more separated link</a></li> -->
                 </ul>
-              </li>              
+              </li> 
+              
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Listar<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="${url}/aluno/listar">Aluno</a></li>
+                  <li><a href="${url}/disciplina/listar">Disciplina</a></li>
+                  <li><a href="${url}/funcionario/listar">Funcionário</a></li>
+                  <li><a href="${url}/instituicao/listar">Instituição</a></li>
+                  <li><a href="${url}/professor/listar">Professor</a></li>
+                  <li><a href="${url}/curso/listar">Curso</a></li>
+                  <li><a href="${url}/turma/listar">Turma</a></li>                                    
+                </ul>
+              </li> 
+                           
               <li><a href="#">Relatórios</a></li>       
               <li class="logoff"><a href="#contact">Sair</a></li>                                      
               <li class="textoUsuario">Bem vindo: Usuário.</li>    
