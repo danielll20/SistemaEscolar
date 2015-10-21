@@ -3,6 +3,8 @@
  */
 package br.com.sistemaescolar.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import br.com.sistemaescolar.dao.TurmaDao;
@@ -19,6 +21,10 @@ public class TurmaService {
 	
 	public void insert(Turma turma) {
 		turmaDao.insert(turma);
+	}
+
+	public List<Turma> listarTodas() {
+		return turmaDao.listarTodas();
 	}
 
 }

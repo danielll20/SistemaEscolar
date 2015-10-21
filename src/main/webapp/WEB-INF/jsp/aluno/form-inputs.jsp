@@ -42,6 +42,28 @@
 </div>
 
 <div class="form-group">
+	<label class="col-sm-2 control-label" for="cidade">Cidade:</label>
+	<div class="col-sm-5">
+		<input class="form-control" type="text" id="cidade" name="aluno.endereco.cidade.nome" value="${aluno.endereco.cidade.nome}"/>
+	</div>
+</div>
+
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="uf">UF:</label>
+	<div class="col-sm-5">
+		<input class="form-control" type="text" id="uf" name="aluno.endereco.uf.nome" value="${aluno.endereco.uf.nome}"/>
+	</div>
+</div>
+
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="cep">CEP:</label>
+	<div class="col-sm-5">
+		<input class="form-control" type="text" id="cep" name="aluno.endereco.cep.numero" value="${Aluno.endereco.cep.numero}"/>
+	</div>
+</div>
+
+
+<div class="form-group">
 	<label class="col-sm-2 control-label" for="nomeMae">Nome da
 		mãe:</label>
 	<div class="col-sm-5">

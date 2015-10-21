@@ -4,7 +4,6 @@
 package br.com.sistemaescolar.modelo;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,7 +12,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -71,10 +69,6 @@ public class Aluno {
 
 	@Column(name = "CELULAR")
 	private String celular;
-
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "ID_ALUNO")
-	List<Matricula> matriculas;
 
 	public Long getId() {
 		return id;
@@ -178,14 +172,6 @@ public class Aluno {
 
 	public void setCelular(String celular) {
 		this.celular = celular;
-	}
-
-	public List<Matricula> getMatriculas() {
-		return matriculas;
-	}
-
-	public void setMatriculas(List<Matricula> matriculas) {
-		this.matriculas = matriculas;
 	}
 
 }

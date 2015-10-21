@@ -57,15 +57,17 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Listar<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="${url}/aluno/listar">Aluno</a></li>
-                  <li><a href="${url}/disciplina/listar">Disciplina</a></li>
-                  <li><a href="${url}/funcionario/listar">Funcionário</a></li>
+                  <li><a href="${url}/aluno/listar">Alunos</a></li>
+                  <li><a href="${url}/disciplina/listar">Disciplinas</a></li>
+                  <li><a href="${url}/funcionario/listar">Funcionários</a></li>
                   <li><a href="${url}/instituicao/listar">Instituição</a></li>
-                  <li><a href="${url}/professor/listar">Professor</a></li>
-                  <li><a href="${url}/curso/listar">Curso</a></li>
-                  <li><a href="${url}/turma/listar">Turma</a></li>                                    
+                  <li><a href="${url}/professor/listar">Professores</a></li>
+                  <li><a href="${url}/curso/listar">Cursos</a></li>
+                  <li><a href="${url}/turma/listar">Turmas</a></li>                                    
                 </ul>
               </li> 
+              
+              <li class="active"><a href="${url}/matricula/novo">Matrículas</a></li>
                            
               <li><a href="#">Relatórios</a></li>       
               <li class="logoff"><a href="#contact">Sair</a></li>                                      

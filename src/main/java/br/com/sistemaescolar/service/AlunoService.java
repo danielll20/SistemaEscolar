@@ -11,7 +11,7 @@ import br.com.sistemaescolar.dao.AlunoDao;
 import br.com.sistemaescolar.modelo.Aluno;
 
 /**
- * Classe que trata as regras de négocio do aluno.
+ * Classe que trata as regras de negócio do aluno.
  * 
  * @author Daniel Correia
  * @since 31-08-2015
