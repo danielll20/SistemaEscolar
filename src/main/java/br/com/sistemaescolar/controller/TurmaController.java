@@ -51,7 +51,7 @@ public class TurmaController {
 	
 	@Get("/turma/listar")
 	public void listar() {
-		List<Turma> turmas = turmaService.listarTodos();
+		List<Turma> turmas = turmaService.listarTodas();
 		result.include("listaTurmas", turmas);
 	}
 	
