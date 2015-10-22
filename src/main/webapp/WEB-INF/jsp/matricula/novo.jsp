@@ -15,12 +15,12 @@
 <jsp:include page="../layout/menu.jsp"></jsp:include>
 <h3>Matrícula de Alunos</h3>
 <br><br>
-<form action="${url}/matricula/adiciona" method="post" class="form-horizontal">
-	<%@include file="../matricula/form-inputs.jsp" %>			
-	<div class="botoes">
-		<input type="submit" value="Salvar" class="btn btn-primary"/>
-		<input type="reset" value="Cancelar" class="btn btn-primary"/>					
-	</div>	
-</form>
+	<form action="${url}/matricula/adiciona" method="post" class="form-horizontal">
+		<%@include file="../matricula/form-inputs.jsp" %>			
+		<div class="botoes">
+			<input type="submit" value="Salvar" class="btn btn-primary"/>
+			<input type="reset" value="Cancelar" class="btn btn-primary"/>					
+		</div>	
+	</form>
 </body>
 </html>
