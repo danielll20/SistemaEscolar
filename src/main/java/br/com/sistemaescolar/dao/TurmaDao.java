@@ -19,11 +19,15 @@ public class TurmaDao extends GenericDao {
 	
 	@Inject
 	private EntityManager entityManager;
-
-	public List<Turma> listarTodas() {
-		Query query = entityManager.createQuery("select t from Turma t ");
-
-		return query.getResultList();		
+	
+	public List<Turma> listarTodos() {
+		Query query = entityManager.createQuery("select a from Turma a ");
+		
+		return query.getResultList();
+	}
+	
+	public Turma buscarPorId(Long id) {
+		return entityManager.find(Turma.class, id);
 	}
 
 }
