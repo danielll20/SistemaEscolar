@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Result;
+import br.com.sistemaescolar.modelo.Instituicao;
 import br.com.sistemaescolar.service.InicioService;
 
 /**
@@ -26,6 +27,7 @@ public class InicioController {
 	
 	@Get("/inicio/inicio")
 	public void inicio() {		
-		result.include("listarInstituicao", inicioService.listarInstituicaoPorNomeFantasia());
+		Instituicao instituicao = inicioService.listarInstituicaoPorNomeFantasia();
+		result.include("listarInstituicao", instituicao.getNomeFantasia());
 	}
 }
