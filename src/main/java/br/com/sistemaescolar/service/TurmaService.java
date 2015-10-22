@@ -23,8 +23,8 @@ public class TurmaService {
 		turmaDao.insert(turma);
 	}
 	
-	public List<Turma> listarTodos() {
-		return turmaDao.listarTodos();
+	public List<Turma> listarTodas() {
+		return turmaDao.listarTodas();
 	}
 	
 	public Turma buscarPorId(Long id) {
