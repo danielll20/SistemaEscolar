@@ -53,10 +53,3 @@
 		<input class="form-control" type="text" id="valorTotal" name="matricula.valorTotal"/>
 	</div>
 </div>
-
-
-
-
-
-
-
