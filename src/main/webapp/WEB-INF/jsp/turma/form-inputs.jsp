@@ -71,3 +71,11 @@
 			name="turma.numeroVagas" value="${turma.numeroVagas}" />
 	</div>
 </div>
+
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="turno">Turno:</label>
+	<div class="col-sm-5">
+		<input class="form-control" type="text" id="turno"
+			name="turma.turno" value="${turma.turno}" />
+	</div>
+</div>
