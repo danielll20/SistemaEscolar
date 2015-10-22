@@ -3,12 +3,18 @@
  */
 package br.com.sistemaescolar.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
+import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.validator.Validator;
 import br.com.sistemaescolar.modelo.Turma;
 import br.com.sistemaescolar.service.CursoService;
 import br.com.sistemaescolar.service.TurmaService;
@@ -28,6 +34,9 @@ public class TurmaController {
 
 	@Inject
 	private Result result;
+	
+	@Inject
+	private Validator validator;
 
 	@Path("/turma/novo")
 	public void novo() {
@@ -40,5 +49,33 @@ public class TurmaController {
 		result.redirectTo(TurmaController.class).novo();
 	}
 	
+	@Get("/turma/listar")
+	public void listar() {
+		List<Turma> turmas = turmaService.listarTodos();
+		result.include("listaTurmas", turmas);
+	}
+	
+	@Get("/turma/{turma.id}")
+	public void atualizarFormulario(Turma turma) {
+		result.include("disciplina", turmaService.buscarPorId(turma.getId()));		
+	}
+	
+	@Post("/turma/{id}")
+	@Transactional
+	public void atualizar(Long id, @Valid Turma turma) {
+		turma.setId(id);
+		validator.onErrorForwardTo(this).atualizarFormulario(turma);
+		
+		turmaService.atualizar(turma);
+		result.redirectTo(this).listar();
+	}
+	
+	@Get("/turma/delete/{id}")
+	@Transactional
+	public void remove(Long id) {
+		Turma turma = turmaService.buscarPorId(id);
+		turmaService.remove(turma);
+		result.redirectTo(this).listar();
+	}
 
 }
