@@ -40,6 +40,10 @@ public class TurmaController {
 
 	@Path("/turma/novo")
 	public void novo() {
+		carregaCursos();
+	}
+	
+	private void carregaCursos() {
 		result.include("cursos", cursoService.listarTodos());
 	}
 
@@ -57,7 +61,8 @@ public class TurmaController {
 	
 	@Get("/turma/{turma.id}")
 	public void atualizarFormulario(Turma turma) {
-		result.include("disciplina", turmaService.buscarPorId(turma.getId()));		
+		result.include("turma", turmaService.buscarPorId(turma.getId()));	
+		carregaCursos();
 	}
 	
 	@Post("/turma/{id}")
