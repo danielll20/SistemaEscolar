@@ -12,7 +12,7 @@ import br.com.sistemaescolar.modelo.Curso;
  * Classe de acesso aos métodos de persistência.
  * 
  * @author Daniel Correia
- * @since 17-10-2015
+ * @since 22-10-2015
  *
  */
 public class CursoDao extends GenericDao {
@@ -24,5 +24,9 @@ public class CursoDao extends GenericDao {
 		Query query = entityManager.createQuery("select c from Curso c ");
 
 		return query.getResultList();
+	}
+	
+	public Curso buscarPorId(Long id) {
+		return entityManager.find(Curso.class, id);
 	}
 }
