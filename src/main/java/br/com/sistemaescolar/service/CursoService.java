@@ -11,19 +11,32 @@ import br.com.sistemaescolar.modelo.Curso;
  * Classe que trata as regras de négocio do curso.
  * 
  * @author Daniel Freitas
- * @since 17/10/2015
+ * @since 22/10/2015
  */
 public class CursoService {
 
 	@Inject
 	private CursoDao cursoDao;	
 	
+	public void insert(Curso curso) {
+		cursoDao.insert(curso);		
+	}
+	
 	public List<Curso> listarTodos() {
 		return cursoDao.listarTodos();
 	}
-
-	public void insert(Curso curso) {
-		cursoDao.insert(curso);
-		
+	
+	public Curso buscarPorId(Long id) {
+		return cursoDao.buscarPorId(id);
 	}
+	
+	public void atualizar(Curso curso) {
+		cursoDao.update(curso);
+	}
+	
+	public void remove(Curso curso) {
+		cursoDao.delete(curso);
+	}
+	
+	
 }
