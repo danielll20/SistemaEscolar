@@ -64,4 +64,13 @@ div.ui-datepicker {
 	margin-top: 17%;	
 }
 
+.divBuscaAlunos{
+	border: solid 1px black; 
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	width: 1000px;
+	height: 40px;
+}
+
 
