@@ -4,6 +4,7 @@
 package br.com.sistemaescolar.controller;
 
 import javax.inject.Inject;
+
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
@@ -11,6 +12,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.sistemaescolar.modelo.Matricula;
 import br.com.sistemaescolar.service.AlunoService;
 import br.com.sistemaescolar.service.MatriculaService;
+import br.com.sistemaescolar.service.SituacaoService;
 import br.com.sistemaescolar.service.TurmaService;
 
 /**
@@ -33,16 +35,21 @@ public class MatriculaController {
 	@Inject
 	private MatriculaService matriculaService;
 	
+	@Inject
+	private SituacaoService situacaoService;
+	
 	@Path("/matricula/novo")
 	public void novo() {	
 		result.include("alunos", alunoService.listarTodos());
 		result.include("turmas", turmaService.listarTodas());
+		result.include("matriculas", matriculaService.listarMatriculas());
+		result.include("listaSituacao", situacaoService.listarTodos());
 	}
 	
 	@Post("/matricula/adiciona")
 	public void adiciona(Matricula matricula) {
 		matriculaService.insert(matricula);
 		result.redirectTo(this).novo();
-	}
+	}		
 		
 }
