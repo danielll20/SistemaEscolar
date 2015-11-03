@@ -1,3 +1,5 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <div class="form-group">
 	<label class="col-sm-2 control-label" for="nome">Aluno:</label>
 	<div class="col-sm-5">
@@ -25,13 +27,6 @@
 </div>
 
 <div class="form-group">
-	<label class="col-sm-2 control-label" for="dataMatricula">Data da Matrícula:</label>
-	<div class="col-sm-5">
-		<input class="form-control" type="text" id="dataMatricula" name="matricula.dataMatricula"/>
-	</div>
-</div>
-
-<div class="form-group">
 	<label class="col-sm-2 control-label" for="valorMatricula">Valor da Matrícula:</label>
 	<div class="col-sm-5">
 		<input class="form-control" type="text" id="valorMatricula" name="matricula.valorMatricula"/>
@@ -51,5 +46,25 @@
 	<label class="col-sm-2 control-label" for="valorTotal">Valor Total:</label>
 	<div class="col-sm-5">
 		<input class="form-control" type="text" id="valorTotal" name="matricula.valorTotal"/>
+	</div>
+</div>
+
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="dataMatricula">Data da Matrícula:</label>
+	<div class="col-sm-5">
+		<input class="form-control" type="text" id="dataMatricula" name="matricula.dataMatricula" readonly="true"/>
+	</div>
+</div>
+
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="situacao">Situação:</label>
+	<div class="col-sm-5">
+		<select class="selectBox" name='matricula.situacao.id' id='matricula.situacao.id'>
+			<option id="curso">Selecione a situação do aluno</option>
+			<c:forEach items='${listaSituacao}' var='situacao'>
+				<option value='${situacao.id}'
+					${situacao.id == matricula.situacao.id ? 'selected' : ''}>${situacao.descricao}</option>
+			</c:forEach>
+		</select>
 	</div>
 </div>
