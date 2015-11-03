@@ -3,7 +3,10 @@
  */
 package br.com.sistemaescolar.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
+
 import br.com.sistemaescolar.dao.MatriculaDao;
 import br.com.sistemaescolar.modelo.Matricula;
 
@@ -21,5 +24,10 @@ public class MatriculaService {
 	
 	public void insert(Matricula matricula) {
 		matriculaDao.insert(matricula);
+	}
+
+	public List<Matricula> listarMatriculas() {
+		return matriculaDao.listarMatriculas();
+		
 	}
 }
