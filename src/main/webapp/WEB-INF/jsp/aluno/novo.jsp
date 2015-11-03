@@ -15,13 +15,29 @@
 <script type="text/javascript" src="${url}/js/jquery-ui.js"></script>
 <script type="text/javascript" src="${url}/js/calendario-jquery.js"></script>    
 
+<script type="text/javascript">
+$(document).ready(function() {
+	// desabilitando o campo 
+	$('#dataCadastro').prop("disabled", false);
+	// mudando a cor do campo
+	$('#dataCadastro').css("background-color", "#F5F5F5"); 
+});
+
+function carregaDataAtual(){   
+	var d=new Date();  
+	var monthname=new Array("01","02","03","04","05","06","07","08","09","10","11","12");  
+	var TODAY = d.getDate() + "/" +monthname[d.getMonth()] +  "/" + d.getFullYear();  
+	formAluno.dataCadastro.value = TODAY;    
+}
+</script>
+
 <title>Cadastro de Alunos</title>
 </head>
-<body class="body">
+<body class="body" onload="carregaDataAtual()">
 	 <jsp:include page="../layout/menu.jsp"></jsp:include>
 	 <h3>Cadastro de Alunos</h3>
     <br><br>  
-	<form action="${url}/aluno/adiciona" method="post" class="form-horizontal">
+	<form name="formAluno" action="${url}/aluno/adiciona" method="post" class="form-horizontal">
 		<%@include file="../aluno/form-inputs.jsp" %>		
 		<div class="botoes">
 			<input type="submit" value="Salvar" class="btn btn-primary"/>

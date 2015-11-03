@@ -1,3 +1,5 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <script type="text/javascript" src="${url}/js/jquery.js" ></script>
 <script type="text/javascript" src="${url}/js/jquery-ui.js"></script>
 <script type="text/javascript" src="${url}/js/calendario-jquery.js"></script>
@@ -58,7 +60,7 @@
 <div class="form-group">
 	<label class="col-sm-2 control-label" for="cep">CEP:</label>
 	<div class="col-sm-5">
-		<input class="form-control" type="text" id="cep" name="aluno.endereco.cep.numero" value="${Aluno.endereco.cep.numero}"/>
+		<input class="form-control" type="text" id="cep" name="aluno.endereco.cep.numero" value="${aluno.endereco.cep.numero}"/>
 	</div>
 </div>
 
@@ -86,7 +88,7 @@
 		de nascimento:</label>
 	<div class="col-sm-5">
 		<input class="form-control" type="text" id="dataNascimento"
-			name="aluno.dataNascimento" value="${aluno.dataNascimento}"/>
+			name="aluno.dataNascimento" value="<fmt:formatDate value="${aluno.dataNascimento}" dateStyle="medium" /> "/>
 	</div>
 </div>
 
@@ -95,16 +97,24 @@
 		do cadastro:</label>
 	<div class="col-sm-5">
 		<input class="form-control" type="text" id="dataCadastro"
-			name="aluno.dataCadastro" value="${aluno.dataCadastro}"/>
+			name="aluno.dataCadastro" value="<fmt:formatDate value="${aluno.dataCadastro}" dateStyle="medium" /> " readonly="true"/>
 	</div>
 </div>
 
 <div class="form-group">
 	<label class="col-sm-2 control-label" for="sexo">Sexo:</label>
 	<div class="col-sm-5">
-		<input class="form-control" type="text" id="sexo" name="aluno.sexo" value="${aluno.sexo}"/>
+		<select class="selectBox" name='aluno.sexo' id='sexo'>
+			<option id="select">Selecione um sexo</option>
+			
+			<c:forEach items="${carregaSexo}" var="sexo">  
+                <c:set var="sel" value="${aluno.sexo eq sexo ? 'selected':''}"></c:set>  
+                <option value="${sexo}" ${sel}>${sexo.valor}</option>  
+            </c:forEach>
+		</select>
 	</div>
 </div>
+
 
 <div class="form-group">
 	<label class="col-sm-2 control-label" for="cpf">CPF:</label>
