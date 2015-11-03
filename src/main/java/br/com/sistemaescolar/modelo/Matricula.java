@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -54,9 +55,13 @@ public class Matricula {
 	@JoinColumn(name = "ID_ALUNO")
 	private Aluno aluno;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "ID_TURMA")
 	private Turma turma;
+	
+	@OneToOne
+	@JoinColumn(name = "ID_SITUACAO")
+	private Situacao situacao;
 
 	public Long getId() {
 		return id;
@@ -120,6 +125,14 @@ public class Matricula {
 
 	public void setTurma(Turma turma) {
 		this.turma = turma;
+	}
+
+	public Situacao getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(Situacao situacao) {
+		this.situacao = situacao;
 	}
 	
 }
