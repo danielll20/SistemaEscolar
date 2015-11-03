@@ -3,6 +3,14 @@
  */
 package br.com.sistemaescolar.dao;
 
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import br.com.sistemaescolar.modelo.Matricula;
+
 /**
  * Classe de acesso aos métodos de persistência.
  * 
@@ -11,5 +19,14 @@ package br.com.sistemaescolar.dao;
  *
  */
 public class MatriculaDao extends GenericDao {
+	
+	@Inject
+	private EntityManager entityManager;
+
+	public List<Matricula> listarMatriculas() {		
+		Query query = entityManager.createQuery("select m from Matricula m ");
+
+		return query.getResultList();
+	}
 
 }
