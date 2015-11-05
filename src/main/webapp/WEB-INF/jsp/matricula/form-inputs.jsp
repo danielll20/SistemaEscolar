@@ -14,13 +14,13 @@
 </div>
 
 <div class="form-group">
-	<label class="col-sm-2 control-label" for="turma">Turma:</label>
+	<label class="col-sm-2 control-label" for="turma">Curso/Turma:</label>
 	<div class="col-sm-5">
 		<select class="selectBox" name='matricula.turma.id' id='matricula.turma.id'>
 			<option id="curso">Selecione uma Turma</option>
 			<c:forEach items='${turmas}' var='turma'>
 				<option value='${turma.id}'
-					${turma.id == matricula.turma.id ? 'selected' : ''}>${turma.nome} - ${turma.curso.nome} - ${turma.turno}</option>
+					${turma.id == matricula.turma.id ? 'selected' : ''}>${turma.curso.nome} - ${turma.nome} - ${turma.turno}</option>
 			</c:forEach>
 		</select>
 	</div>
