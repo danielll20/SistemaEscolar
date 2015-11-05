@@ -57,9 +57,9 @@ function carregaDataAtual(){
 		  	<th>Aluno</th> 
 		  	<th>Data da Matrícula</th>       
 		    <th>Ano</th>
-		    <th>Situação</th>
-		    <th>Turma</th>          
+		    <th>Situação</th>		             
 		    <th>Curso</th>
+		    <th>Turma</th>
 		    <th>Turno</th>
 		    <th>Entrada</th>
 		    <th>Saída</th>
@@ -72,9 +72,9 @@ function carregaDataAtual(){
 		 	   <td>${matricula.aluno.nome}</td>		       
 		       <td><fmt:formatDate value="${matricula.dataMatricula}" /></td>		       
 		       <td><fmt:formatDate value="${matricula.dataMatricula}" pattern="yyyy"/></td> 
-		       <td>${matricula.situacao.descricao}</td>  
-		       <td>${matricula.turma.nome}</td>
+		       <td>${matricula.situacao.descricao}</td>  		       
 		       <td>${matricula.turma.curso.nome}</td>
+		       <td>${matricula.turma.nome}</td>
 		       <td>${matricula.turma.turno}</td>
 		       <td>${matricula.turma.horarioEntrada}</td>
 		       <td>${matricula.turma.horarioSaida}</td>                   

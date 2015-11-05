@@ -20,7 +20,7 @@
 			<option id="curso">Selecione uma Turma</option>
 			<c:forEach items='${turmas}' var='turma'>
 				<option value='${turma.id}'
-					${turma.id == matricula.turma.id ? 'selected' : ''}>${turma.nome}</option>
+					${turma.id == matricula.turma.id ? 'selected' : ''}>${turma.nome} - ${turma.curso.nome} - ${turma.turno}</option>
 			</c:forEach>
 		</select>
 	</div>
