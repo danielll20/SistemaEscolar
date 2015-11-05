@@ -14,8 +14,10 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.sistemaescolar.modelo.Aluno;
+import br.com.sistemaescolar.modelo.Sexo;
 import br.com.sistemaescolar.service.AlunoService;
 
 /**
@@ -37,10 +39,14 @@ public class AlunoController {
 
 	@Path("/aluno/novo")
 	public void novo() {
+		result.include("carregaSexo", Sexo.values()); 
 	}
 
 	@Post
-	public void adiciona(Aluno aluno) {
+	public void adiciona(final Aluno aluno) {
+		validator.addIf(aluno.getNome() == null, new SimpleMessage(null, "- Campo nome obrigatório."));
+		validator.addIf(aluno.getDataNascimento() == null, new SimpleMessage(null, "- Campo data de nascimento obrigatório."));
+		validator.onErrorUsePageOf(this).novo();
 		alunoService.insert(aluno);
 		result.redirectTo(AlunoController.class).novo();
 	}
@@ -53,7 +59,8 @@ public class AlunoController {
 
 	@Get("/aluno/{aluno.id}")
 	public void atualizarFormulario(Aluno aluno) {
-		result.include("aluno", alunoService.buscarPorId(aluno.getId()));
+		Aluno alunoS = alunoService.buscarPorId(aluno.getId());
+		result.include("aluno", alunoS);		
 	}
 
 	@Post("/aluno/{id}")
