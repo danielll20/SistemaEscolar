@@ -58,7 +58,7 @@ div.ui-datepicker {
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
-/*css nome da instituição na jso início*/
+/*css nome da instituição na jsp início*/
 .conteudoInicio{
 	text-align: center;	
 	margin-top: 17%;	
@@ -73,4 +73,16 @@ div.ui-datepicker {
 	height: 40px;
 }
 
+#error {	
+/* 	border: 1px solid; */
+	margin: 10px 0px;
+/* 	padding: 35px 15px 35px 70px; */
+	background-repeat: no-repeat;
+	background-position: 10px center; color : #D8000C;
+	background-color: #FFBABA;
+	background-image: url('../css/images/erro1.png');
+	color: #D8000C;	
+	height: auto;
+	font-size: 14px;
+}
 
