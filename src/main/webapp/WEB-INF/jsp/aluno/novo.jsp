@@ -11,18 +11,18 @@
 <link rel="stylesheet" href="${url}/css/jquery-ui.css"/>
 <link rel="stylesheet" href="${url}/css/bootstrap.css"/>
 
-<script type="text/javascript" src="${url}/js/jquery.js" ></script>
-<script type="text/javascript" src="${url}/js/jquery-ui.js"></script>
-<script type="text/javascript" src="${url}/js/calendario-jquery.js"></script>    
+<%-- <script type="text/javascript" src="${url}/js/jquery.js" ></script> --%>
+<%-- <script type="text/javascript" src="${url}/js/jquery-ui.js"></script> --%>
+<%-- <script type="text/javascript" src="${url}/js/calendario-jquery.js"></script>     --%>
 
 <script type="text/javascript">
 $(document).ready(function() {
 	// desabilitando o campo 
 	$('#dataCadastro').prop("disabled", false);
 	// mudando a cor do campo
-	$('#dataCadastro').css("background-color", "#F5F5F5"); 
+	$('#dataCadastro').css("background-color", "#F5F5F5");	
 });
-
+	
 function carregaDataAtual(){   
 	var d=new Date();  
 	var monthname=new Array("01","02","03","04","05","06","07","08","09","10","11","12");  
@@ -35,6 +35,15 @@ function carregaDataAtual(){
 </head>
 <body class="body" onload="carregaDataAtual()">
 	 <jsp:include page="../layout/menu.jsp"></jsp:include>
+	 
+	 <div id="error">	 
+		 <ul style="margin-left: 30px;">		 
+			 <c:forEach var="error" items="${errors}">	 	
+		    	<div style="height: 7px;"></div>${error.message}<div style="height: 7px;"></div>
+			 </c:forEach>	
+		</ul>
+	</div>
+	 
 	 <h3>Cadastro de Alunos</h3>
     <br><br>  
 	<form name="formAluno" action="${url}/aluno/adiciona" method="post" class="form-horizontal">

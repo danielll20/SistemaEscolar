@@ -10,9 +10,6 @@
 <link rel="stylesheet" href="${url}/css/jquery-ui.css"/>
 <link rel="stylesheet" href="${url}/css/bootstrap.css"/>
 
-<script type="text/javascript" src="${url}/js/jquery.js" ></script>
-<script type="text/javascript" src="${url}/js/jquery-ui.js"></script>
-
 <title>Matrícula de Alunos</title>
 
 <script type="text/javascript">
@@ -24,7 +21,7 @@ $(document).ready(function() {
 	$('#dataMatricula').css("background-color", "#F5F5F5"); 
 });
 
-function carregaDataAual(){   
+function carregaDataAtual(){   
 	var d=new Date();  
 	var monthname=new Array("01","02","03","04","05","06","07","08","09","10","11","12");  
 	var TODAY = d.getDate() + "/" +monthname[d.getMonth()] +  "/" + d.getFullYear();  
