@@ -1,8 +1,9 @@
 $(function(){
-	$("#dataNascimento").datepicker({
+	$("#dataNascimento").datepicker({	
 		changeMonth: true,
         changeYear: true,
-	    dateFormat: 'dd/mm/yy',
+        yearRange: '-100:+0',
+	    dateFormat: 'dd/mm/yy',	    
 	    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'
 	        ],
 	    dayNamesMin: [
