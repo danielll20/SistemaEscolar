@@ -31,15 +31,15 @@ public class Endereco {
 	@Column(name = "BAIRRO")
 	private String bairro;
 
-	@OneToOne(cascade=CascadeType.PERSIST)
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "ID_CIDADE")
 	private Cidade cidade;
 
-	@OneToOne(cascade=CascadeType.PERSIST)
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "ID_UF")
 	private Uf uf;
 
-	@OneToOne(cascade=CascadeType.PERSIST)
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "ID_CEP")
 	private Cep cep;
 
