@@ -56,15 +56,4 @@
 	</div>
 </div>
 
-<div class="form-group">
-	<label class="col-sm-2 control-label" for="situacao">Situação:</label>
-	<div class="col-sm-5">
-		<select class="selectBox" name='matricula.situacao.id' id='matricula.situacao.id'>
-			<option id="curso">Selecione a situação do aluno</option>
-			<c:forEach items='${listaSituacao}' var='situacao'>
-				<option value='${situacao.id}'
-					${situacao.id == matricula.situacao.id ? 'selected' : ''}>${situacao.descricao}</option>
-			</c:forEach>
-		</select>
-	</div>
-</div>
+<input class="form-control" type="hidden" id="situacao" name="matricula.situacao.id" value="${situacaoPadrao}"/>

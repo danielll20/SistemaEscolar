@@ -47,7 +47,7 @@ function carregaDataAtual(){
   <div class="panel-heading">
   	<h3>Alunos Matriculados</h3>
   	<button type="submit" style="margin-left: 230px; margin-top: -40px;" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">+ Novo Aluno</button>
-  	<input class="form-control" style="width: 300px; float: right; margin-top: -40px;" type="text" id="cpf" name="aluno.cpf" placeholder="Pesquisar aluno"/>
+  	<input class="form-control" style="width: 300px; float: right; margin-top: -40px;" type="text" id="buscarAluno" name="aluno.cpf" placeholder="Pesquisar aluno"/>
   </div>
   
   <div class="panel-body">

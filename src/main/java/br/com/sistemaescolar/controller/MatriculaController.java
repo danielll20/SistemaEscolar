@@ -43,7 +43,7 @@ public class MatriculaController {
 		result.include("alunos", alunoService.listarTodos());
 		result.include("turmas", turmaService.listarTodas());
 		result.include("matriculas", matriculaService.listarMatriculas());
-		result.include("listaSituacao", situacaoService.listarTodos());
+		result.include("situacaoPadrao", situacaoService.listarSituacao());		
 	}
 	
 	@Post("/matricula/adiciona")
@@ -51,5 +51,5 @@ public class MatriculaController {
 		matriculaService.insert(matricula);
 		result.redirectTo(this).novo();
 	}		
-		
+			
 }
