@@ -50,6 +50,6 @@ public class MatriculaController {
 	public void adiciona(Matricula matricula) {
 		matriculaService.insert(matricula);
 		result.redirectTo(this).novo();
-	}		
-			
+	}	    
+		    
 }
