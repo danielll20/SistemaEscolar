@@ -8,27 +8,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="${url}/css/style.css"/>
 <link rel="stylesheet" href="${url}/css/jquery-ui.css"/>
-<link rel="stylesheet" href="${url}/css/bootstrap.css"/>
-
+<link rel="stylesheet" href="${url}/css/dataTables.bootstrap.min.css"/>
 <title>Matrícula de Alunos</title>
 
-<script type="text/javascript">
-
-$(document).ready(function() {
-	// desabilitando o campo 
-	$('#dataMatricula').prop("disabled", false);
-	// mudando a cor do campo
-	$('#dataMatricula').css("background-color", "#F5F5F5"); 
-});
-
-function carregaDataAtual(){   
-	var d=new Date();  
-	var monthname=new Array("01","02","03","04","05","06","07","08","09","10","11","12");  
-	var TODAY = d.getDate() + "/" +monthname[d.getMonth()] +  "/" + d.getFullYear();  
-	formMatricula.dataMatricula.value = TODAY;    
-}
-
-</script>
 </head>
 <body class="body" onload="carregaDataAtual()">
 <jsp:include page="../layout/menu.jsp"></jsp:include>
@@ -45,13 +27,15 @@ function carregaDataAtual(){
 <br><br>
 <div class="panel panel-default">
   <div class="panel-heading">
-  	<h3>Alunos Matriculados</h3>
-  	<button type="submit" style="margin-left: 230px; margin-top: -40px;" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">+ Novo Aluno</button>
-  	<input class="form-control" style="width: 300px; float: right; margin-top: -40px;" type="text" id="buscarAluno" name="aluno.cpf" placeholder="Pesquisar aluno"/>
-  </div>
+  	<h4>Alunos Matriculados</h4>
+  	<button type="submit" style="margin-left: 230px; margin-top: -40px;" class="btn btn-primary" 
+  			data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+  			+ Novo Aluno
+  	</button>  	
+  </div>   
   
   <div class="panel-body">
-  	<table class="table table-stripped table-hover table-bordered">		
+  	<table class="table table-striped table-bordered" id="lista-matriculas" cellspacing="0" width="100%">		
 		<thead>						  
 		  <tr>		    
 		  	<th>Aluno</th> 
@@ -89,7 +73,7 @@ function carregaDataAtual(){
   </div>
 </div>
 
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -194,6 +178,53 @@ function carregaDataAtual(){
 				
 			</div>
 		</div>
-	</div>
+	</div>	
+	
+<script type="text/javascript" src="${url}/js/jquery-1.11.3.min.js" ></script>
+<script type="text/javascript" src="${url}/js/jquery.dataTables.min.js" ></script>
+<script type="text/javascript" src="${url}/js/dataTables.bootstrap.min.js" ></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		// desabilitando o campo 
+		$('#dataMatricula').prop("disabled", false);
+		// mudando a cor do campo
+		$('#dataMatricula').css("background-color", "#F5F5F5"); 
+		
+		$('#lista-matriculas').dataTable({
+			language: {
+				"sEmptyTable": "Nenhum registro encontrado",
+			    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+			    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+			    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+			    "sInfoPostFix": "",
+			    "sInfoThousands": ".",
+			    "sLengthMenu": "_MENU_ resultados por página",
+			    "sLoadingRecords": "Carregando...",
+			    "sProcessing": "Processando...",
+			    "sZeroRecords": "Nenhum registro encontrado",
+			    "sSearch": "Pesquisar",
+			    "oPaginate": {
+			        "sNext": "Próximo",
+			        "sPrevious": "Anterior",
+			        "sFirst": "Primeiro",
+			        "sLast": "Último"
+				}
+			},
+			
+			"oAria": {
+		        "sSortAscending": ": Ordenar colunas de forma ascendente",
+		        "sSortDescending": ": Ordenar colunas de forma descendente"
+		    }
+		});
+	});
+	
+	function carregaDataAtual(){   
+		var d=new Date();  
+		var monthname=new Array("01","02","03","04","05","06","07","08","09","10","11","12");  
+		var TODAY = d.getDate() + "/" +monthname[d.getMonth()] +  "/" + d.getFullYear();  
+		formMatricula.dataMatricula.value = TODAY;    
+	}
+	   
+</script>			
 </body>
 </html>
