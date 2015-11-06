@@ -29,4 +29,17 @@ public class MatriculaDao extends GenericDao {
 		return query.getResultList();
 	}
 
+//	public List<Matricula> buscaPorNome(String nome) {
+//		
+//		StringBuffer jpql = new StringBuffer();
+//		jpql.append(" select a.nome from Matricula m ");
+//		jpql.append(" inner join m.aluno a ");
+//		jpql.append(" where a.nome = :nome ");
+//		
+//		Query query = entityManager.createQuery(jpql.toString());
+//		query.setParameter("nome", nome);
+//		
+//		return query.getResultList();
+//	}
+
 }
