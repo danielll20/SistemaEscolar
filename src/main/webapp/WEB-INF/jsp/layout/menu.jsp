@@ -73,7 +73,8 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pagamentos<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Mensalidade de aluno</a></li>
-                  <li><a href="#">Pagamento de professor/funcionário</a></li>                                               
+                  <li><a href="#">Pagamento de professor</a></li>  
+                  <li><a href="#">Pagamento de funcionário</a></li>                                             
                 </ul>
               </li> 
                            
