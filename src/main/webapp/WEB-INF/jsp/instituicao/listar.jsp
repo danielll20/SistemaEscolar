@@ -12,38 +12,50 @@
     <link rel="stylesheet" href="${url}/css/style.css"/>
 	<link rel="stylesheet" href="${url}/css/jquery-ui.css"/>
 	<link rel="stylesheet" href="${url}/css/bootstrap.css"/>
+	<link rel="stylesheet" href="${url}/css/dataTables.bootstrap.min.css"/>
     		
   </head>
   <body class="body">
     <jsp:include page="../layout/menu.jsp"></jsp:include>
-	<h3>Lista de Instituições</h3>
     
-    
-	<table class="table table-stripped table-hover table-bordered">		
-		<thead>						  
-		  <tr>		            
-		    <th>Razão Social</th>		    
-		    <th>Nome Fantasia</th>       
-		    <th>CNPJ</th>   
-		    <th>Ações</th>
-		  </tr>
-		</thead>
-      
-		<tbody>
-		  	<c:forEach items="${listaInstituicoes}" var="instituicao">
-		     <tr>		       
-		 	   <td>${instituicao.razaoSocial}</td>		      
-		       <td>${instituicao.nomeFantasia}</td>  
-		        <td>${instituicao.cnpj}</td>        
-		       <td>
-		         <a href="${url}/instituicao/${instituicao.id}"><img src="${url}/css/images/edit.png" width="16" height="16" title="Alterar instituição"/></a>
-		         <a href="${url}/instituicao/delete/${instituicao.id}"><img src="${url}/css/images/delete.png" width="16" height="16" title="Excluir instituição"/></a>
-		       </td>
-		     </tr>
-		   </c:forEach>
-		</tbody>
-	</table>	
-	           
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<h4>Instituição Cadastrada</h4> 
+		</div>
+		<div class="panel-body">
+			<table class="table table-stripped table-hover table-bordered" id="idDataTableBootstrap">		
+				<thead>						  
+				  <tr>		            
+				    <th>Razão Social</th>		    
+				    <th>Nome Fantasia</th>       
+				    <th>CNPJ</th>   
+				    <th>Ações</th>
+				  </tr>
+				</thead>
+		      
+				<tbody>
+				  	<c:forEach items="${listaInstituicoes}" var="instituicao">
+				     <tr>		       
+				 	   <td>${instituicao.razaoSocial}</td>		      
+				       <td>${instituicao.nomeFantasia}</td>  
+				        <td>${instituicao.cnpj}</td>        
+				       <td>
+				         <a href="${url}/instituicao/${instituicao.id}"><img src="${url}/css/images/edit.png" width="16" height="16" title="Alterar instituição"/></a>
+				         <a href="${url}/instituicao/delete/${instituicao.id}"><img src="${url}/css/images/delete.png" width="16" height="16" title="Excluir instituição"/></a>
+				       </td>
+				     </tr>
+				   </c:forEach>
+				</tbody>
+			</table>
+		</div>	
+	</div> 
+	
+	<script type="text/javascript" src="${url}/js/jquery.js" ></script>	
+	<script type="text/javascript" src="${url}/js/jquery-ui.js" ></script>
+	<script type="text/javascript" src="${url}/js/jquery-1.11.3.min.js" ></script>
+	<script type="text/javascript" src="${url}/js/jquery.dataTables.min.js" ></script>
+	<script type="text/javascript" src="${url}/js/dataTables.bootstrap.min.js" ></script>
+	<script type="text/javascript" src="${url}/js/configuracaoDataTableBootstrap.js" ></script>      
    </body>      
 </html>
  
