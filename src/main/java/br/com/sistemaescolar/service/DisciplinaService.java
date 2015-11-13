@@ -39,4 +39,9 @@ public class DisciplinaService {
 		disciplinaDao.delete(disciplina);
 	}
 
+	public List<Disciplina> listaDisciplinaPorProfessor(Long idProfessor) {
+		return disciplinaDao.listaDisciplinasPorProfessor(idProfessor);
+		
+	}
+
 }
