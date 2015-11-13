@@ -15,6 +15,7 @@
 <body class="body" onload="carregaDataAtual()">
 <jsp:include page="../layout/menu.jsp"></jsp:include>
 <h3>Matrícula de Alunos</h3>
+<div id="mensagem">${mensagem}</div>
 <br><br>
 	<form name="formMatricula" action="${url}/matricula/adiciona" method="post" class="form-horizontal">
 		<%@include file="../matricula/form-inputs.jsp" %>			
@@ -83,7 +84,7 @@
 					<h4 class="modal-title" id="exampleModalLabel">Cadastro de Alunos</h4>
 				</div>
 				<div class="modal-body">
-					<form action="${url}/aluno/adiciona" method="post">
+					<form id="cadastrarAluno" method="post">
 						<div class="form-group">
 							<label for="nome" class="control-label">Nome:</label>
 							<input type="text" class="form-control" id="nome" name="aluno.nome">
@@ -91,7 +92,7 @@
 						
 						<div class="form-group">
 							<label for="endereco" class="control-label">Endereço:</label>
-							<input type="text" class="form-control" id="nome" name="aluno.endereco.rua">
+							<input type="text" class="form-control" id="endereco" name="aluno.endereco.rua">
 						</div>
 						
 						<div class="form-group">
@@ -180,6 +181,18 @@
 		</div>
 	</div>	
 	
+	<div id="dialog-message" title="Download complete" >
+  		<p>
+    		<span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+    			Your files have downloaded successfully into the My Downloads folder.
+  		</p>
+  		<p>
+    		Currently using <b>36% of your storage space</b>.
+  		</p>
+	</div>
+	
+<script type="text/javascript" src="${url}/js/jquery.js" ></script>	
+<script type="text/javascript" src="${url}/js/jquery-ui.js" ></script>
 <script type="text/javascript" src="${url}/js/jquery-1.11.3.min.js" ></script>
 <script type="text/javascript" src="${url}/js/jquery.dataTables.min.js" ></script>
 <script type="text/javascript" src="${url}/js/dataTables.bootstrap.min.js" ></script>
@@ -224,6 +237,50 @@
 		var TODAY = d.getDate() + "/" +monthname[d.getMonth()] +  "/" + d.getFullYear();  
 		formMatricula.dataMatricula.value = TODAY;    
 	}
+	
+// 	$.ajax({      
+// 	    type: "POST",      
+// 	    dataType:"html",    
+// 	    url: "<c:url value="/matricula/novoAluno"/>",    	      
+// 	    success: function(data) {    
+// 	        alert("Teste");
+	    	
+// 	    	$( "#dialog-message" ).dialog({
+// 	    	      modal: true,
+// 	    	      buttons: {
+// 	    	        Ok: function() {
+// 	    	          $( this ).dialog( "close" );
+// 	    	        }
+// 	    	      }
+// 	    	  }).show();	    		            	                         
+// 	    }    
+// 	}); 
+
+$('#cadastrarAluno').on('submit', function(event){    
+	$.ajax({    
+    	type : 'post',    
+        url : '${url}/matricula/novoAluno',    
+        dataType : 'text',    
+        data : {    
+        	 'aluno.nome' : $("#nome").val(),    
+             'aluno.endereco.rua' : $("#endereco").val()        
+        },    
+      	success: function(retorno){    
+// 			alert("Aluno cadastrado com sucesso!");
+			$( "#dialog-message" ).dialog({
+	  	      	modal: true,
+	  	      	buttons: {
+	  	        Ok: function() {
+	  	          $( this ).dialog( "close" );
+	  	        }
+	  	      	}
+  	 		});
+        }    
+	});    
+    event.stopPropagation();  
+    event.preventDefault();  
+    return false;    
+});  
 	   
 </script>			
 </body>
