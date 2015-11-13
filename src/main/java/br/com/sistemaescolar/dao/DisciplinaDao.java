@@ -29,5 +29,19 @@ public class DisciplinaDao extends GenericDao {
 	public Disciplina buscarPorId(Long id) {
 		return entityManager.find(Disciplina.class, id);
 	}
+	
+	public List<Disciplina> listaDisciplinasPorProfessor(Long idProfessor) {
+		
+		StringBuffer jpql = new StringBuffer();
+		jpql.append(" select ad from AtribuicaoDisciplina ad  ");
+		jpql.append(" inner join ad.disciplina d ");
+		jpql.append(" inner join ad.professor p ");
+		jpql.append(" where ad.professor.id = :idProfessor ");
+		
+		Query query = entityManager.createQuery(jpql.toString());
+		query.setParameter("idProfessor", idProfessor);
+					
+		return query.getResultList();
+	}
 
 }
