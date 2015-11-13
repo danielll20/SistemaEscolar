@@ -9,6 +9,7 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.sistemaescolar.modelo.Aluno;
 import br.com.sistemaescolar.modelo.Matricula;
 import br.com.sistemaescolar.service.AlunoService;
 import br.com.sistemaescolar.service.MatriculaService;
@@ -36,7 +37,7 @@ public class MatriculaController {
 	private MatriculaService matriculaService;
 	
 	@Inject
-	private SituacaoService situacaoService;
+	private SituacaoService situacaoService;	
 	
 	@Path("/matricula/novo")
 	public void novo() {	
@@ -50,6 +51,13 @@ public class MatriculaController {
 	public void adiciona(Matricula matricula) {
 		matriculaService.insert(matricula);
 		result.redirectTo(this).novo();
-	}	    
+	}	
+	
+	@Post("/matricula/novoAluno")
+	public void novoAluno(Aluno aluno) {
+		alunoService.insert(aluno);
+//		result.include("mensagem", "Aluno cadastrado com sucesso!");
+		result.redirectTo(this).novo();
+	}
 		    
 }

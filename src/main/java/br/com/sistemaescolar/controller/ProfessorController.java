@@ -15,7 +15,11 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.Validator;
+import br.com.sistemaescolar.modelo.AtribuicaoDisciplina;
+import br.com.sistemaescolar.modelo.Disciplina;
 import br.com.sistemaescolar.modelo.Professor;
+import br.com.sistemaescolar.service.AtribuirDisciplanaService;
+import br.com.sistemaescolar.service.DisciplinaService;
 import br.com.sistemaescolar.service.ProfessorService;
 
 /**
@@ -33,10 +37,15 @@ public class ProfessorController {
 
 	@Inject
 	private Validator validator;
+	
+	@Inject
+	private DisciplinaService disciplinaService;
+	
+	@Inject
+	private AtribuirDisciplanaService atribuirDisciplinaService;
 
 	@Path("/professor/novo")
-	public void novo() {
-
+	public void novo() {		
 	}
 
 	@Post
@@ -73,5 +82,28 @@ public class ProfessorController {
 		professorService.remove(professor);
 		result.redirectTo(this).listar();
 	}
+	
+	@Get("/professor/atribuirDisciplina/{professor.id}")
+	public void atribuirDisciplina(Professor professor) {
+		//Busca todos os professores pelo id que vem da url.
+		Professor professorId = professorService.buscarPorId(professor.getId());		
+		result.include("professorPorId", professorId);
+		
+		//Lista todas as disciplinas para ser populadas no modal atribuirDisciplina.
+		List<Disciplina> disciplinas = disciplinaService.listarTodos();
+		result.include("disciplinas", disciplinas);
+		
+		//Lista todas as disciplinas de acordo com o id do professor selecionado para popular a tabela
+		//no modal atribuirDisciplina.
+		List<Disciplina> disciplinasPorProfessor =  disciplinaService.listaDisciplinaPorProfessor(professor.getId());
+		result.include("disciplinasPorProfessor", disciplinasPorProfessor);
+	}
+	
+	@Post("/professor/adicionaAtribuicaoDiscipina")
+	public void adicionaAtribuicaoDiscipina(AtribuicaoDisciplina atribuicaoDisciplina) {
+		atribuirDisciplinaService.atribuirDisciplinaProfessor(atribuicaoDisciplina);
+		result.redirectTo(this).listar();
+	}
+	
 
 }
