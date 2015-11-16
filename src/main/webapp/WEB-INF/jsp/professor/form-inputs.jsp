@@ -1,3 +1,5 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <script type="text/javascript" src="${url}/js/jquery.js" ></script>
 <script type="text/javascript" src="${url}/js/jquery-ui.js"></script>
 <script type="text/javascript" src="${url}/js/calendario-jquery.js"></script>
@@ -29,14 +31,6 @@
 		<input class="form-control" type="text" id="dataNascimento" name="funcionario.dataNascimento" value="${funcionario.dataNascimento}"/>
 	</div>
 </div>
-
-<div class="form-group">
-	<label class="col-sm-2 control-label" for="dataCadastro">Data Cadastro:</label>
-	<div class="col-sm-5">
-		<input class="form-control" type="text" id="dataCadastro" name="funcionario.dataCadastro" value="${funcionario.dataCadastro}"/>
-	</div>
-</div>
-
 
 <div class="form-group">
 	<label class="col-sm-2 control-label" for="rua">Rua:</label>
@@ -151,7 +145,10 @@
 	</div>
 </div>
 
-
-
-
-
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="dataCadastro">Data do Cadastro:</label>
+	<div class="col-sm-5">
+		<input class="form-control" type="text" id="dataCadastro" 
+		name="professor.dataCadastro" value="<fmt:formatDate value="${professor.dataCadastro}" dateStyle="medium" /> " readonly="true"/>
+	</div>
+</div>

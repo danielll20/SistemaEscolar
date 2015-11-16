@@ -93,15 +93,6 @@
 </div>
 
 <div class="form-group">
-	<label class="col-sm-2 control-label" for="dataCadastro">Data
-		do cadastro:</label>
-	<div class="col-sm-5">
-		<input class="form-control" type="text" id="dataCadastro"
-			name="aluno.dataCadastro" value="<fmt:formatDate value="${aluno.dataCadastro}" dateStyle="medium" /> " readonly="true"/>
-	</div>
-</div>
-
-<div class="form-group">
 	<label class="col-sm-2 control-label" for="sexo">Sexo:</label>
 	<div class="col-sm-5">
 		<select class="selectBox" name='aluno.sexo' id='sexo'>
@@ -152,5 +143,13 @@
 	<div class="col-sm-5">
 		<input class="form-control" type="text" id="celular"
 			name="aluno.celular" value="${aluno.celular}"/>
+	</div>
+</div>
+
+<div class="form-group">
+	<label class="col-sm-2 control-label" for="dataCadastro">Data do Cadastro:</label>
+	<div class="col-sm-5">
+		<input class="form-control" type="text" id="dataCadastro"
+			name="aluno.dataCadastro" value="<fmt:formatDate value="${aluno.dataCadastro}" dateStyle="medium" /> " readonly="true"/>
 	</div>
 </div>
