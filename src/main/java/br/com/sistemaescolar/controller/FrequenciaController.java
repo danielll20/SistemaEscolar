@@ -59,8 +59,9 @@ public class FrequenciaController {
 			frequencia.setPresente("F");
 			frequencia.setMatricula(matricula);
 			
-			frequenciaService.insert(frequencia);
-			result.redirectTo(this).novo();
+			frequenciaService.insert(frequencia);			
 		}
+		
+		result.redirectTo(this).novo();
 	}
 }
