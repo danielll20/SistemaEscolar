@@ -33,13 +33,27 @@ public class DisciplinaDao extends GenericDao {
 	public List<Disciplina> listaDisciplinasPorProfessor(Long idProfessor) {
 		
 		StringBuffer jpql = new StringBuffer();
-		jpql.append(" select ad from AtribuicaoDisciplina ad  ");
+		jpql.append(" select ad from AtribuicaoDisciplina ad ");
 		jpql.append(" inner join ad.disciplina d ");
 		jpql.append(" inner join ad.professor p ");
 		jpql.append(" where ad.professor.id = :idProfessor ");
 		
 		Query query = entityManager.createQuery(jpql.toString());
 		query.setParameter("idProfessor", idProfessor);
+					
+		return query.getResultList();
+	}
+	
+	public List<Disciplina> listaDisciplinasPorCurso(Long idCurso) {
+		
+		StringBuffer jpql = new StringBuffer();
+		jpql.append(" select adc from AtribuirDisciplinaCurso adc ");
+		jpql.append(" inner join adc.disciplina d ");
+		jpql.append(" inner join adc.curso c ");
+		jpql.append(" where adc.curso.id = :idCurso ");
+		
+		Query query = entityManager.createQuery(jpql.toString());
+		query.setParameter("idCurso", idCurso);
 					
 		return query.getResultList();
 	}

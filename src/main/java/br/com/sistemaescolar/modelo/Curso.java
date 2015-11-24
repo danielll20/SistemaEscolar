@@ -3,11 +3,14 @@
  */
 package br.com.sistemaescolar.modelo;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -31,6 +34,9 @@ public class Curso {
 
 	@Column(name = "MENSALIDADE")
 	private Double mensalidade;
+		
+	@ManyToMany(mappedBy = "cursos")
+	private List<Disciplina> disciplinas;
 
 	public Long getId() {
 		return id;
@@ -62,6 +68,14 @@ public class Curso {
 
 	public void setMensalidade(Double mensalidade) {
 		this.mensalidade = mensalidade;
+	}
+
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
+	}
+
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
 	}
 
 }

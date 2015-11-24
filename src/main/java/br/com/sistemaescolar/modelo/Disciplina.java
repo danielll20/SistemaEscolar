@@ -36,7 +36,11 @@ public class Disciplina {
 
 	@ManyToMany
 	@JoinTable(name = "ATRIBUICAO_DISCIPLINA", joinColumns = @JoinColumn(name = "ID_DISCIPLINA"), inverseJoinColumns = @JoinColumn(name = "ID_PROFESSOR"))
-	private List<Professor> professores;	
+	private List<Professor> professores;
+	
+	@ManyToMany
+	@JoinTable(name = "ATRIBUIR_DISCIPLINA_CURSO", joinColumns = @JoinColumn(name = "ID_DISCIPLINA"), inverseJoinColumns = @JoinColumn(name = "ID_CURSO"))
+	private List<Curso> cursos;
 
 	public Long getId() {
 		return id;
@@ -68,6 +72,14 @@ public class Disciplina {
 
 	public void setProfessores(List<Professor> professores) {
 		this.professores = professores;
+	}
+
+	public List<Curso> getCursos() {
+		return cursos;
+	}
+
+	public void setCursos(List<Curso> cursos) {
+		this.cursos = cursos;
 	}
 	
 }

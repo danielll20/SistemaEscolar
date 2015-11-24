@@ -40,8 +40,11 @@ public class DisciplinaService {
 	}
 
 	public List<Disciplina> listaDisciplinaPorProfessor(Long idProfessor) {
-		return disciplinaDao.listaDisciplinasPorProfessor(idProfessor);
-		
+		return disciplinaDao.listaDisciplinasPorProfessor(idProfessor);		
+	}
+	
+	public List<Disciplina> listaDisciplinaPorCurso(Long idCurso) {
+		return disciplinaDao.listaDisciplinasPorCurso(idCurso);		
 	}
 
 }
