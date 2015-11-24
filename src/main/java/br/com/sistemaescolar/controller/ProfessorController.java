@@ -89,7 +89,7 @@ public class ProfessorController {
 		Professor professorId = professorService.buscarPorId(professor.getId());		
 		result.include("professorPorId", professorId);
 		
-		//Lista todas as disciplinas para ser populadas no modal atribuirDisciplina.
+		//Lista todas as disciplinas para serem populadas no modal atribuirDisciplina.
 		List<Disciplina> disciplinas = disciplinaService.listarTodos();
 		result.include("disciplinas", disciplinas);
 		
@@ -99,9 +99,35 @@ public class ProfessorController {
 		result.include("disciplinasPorProfessor", disciplinasPorProfessor);
 	}
 	
-	@Post("/professor/adicionaAtribuicaoDiscipina")
-	public void adicionaAtribuicaoDiscipina(AtribuicaoDisciplina atribuicaoDisciplina) {
-		atribuirDisciplinaService.atribuirDisciplinaProfessor(atribuicaoDisciplina);
+	@Post("/professor/adicionaAtribuicaoDiscipina/{professor.id}")
+	public void adicionaAtribuicaoDiscipina(Professor professor, List<Disciplina> disciplinas) {
+		
+		for (Disciplina disciplina : disciplinas) {			
+			AtribuicaoDisciplina atribuicaoDisciplina = new AtribuicaoDisciplina();
+			atribuicaoDisciplina.setProfessor(professor);
+			atribuicaoDisciplina.setDisciplina(disciplina);
+			
+			AtribuicaoDisciplina verificaAtribuicaoDisciplina = atribuirDisciplinaService
+					.verificaAtribuicaoDisciplina(atribuicaoDisciplina
+							.getDisciplina().getId(), atribuicaoDisciplina
+							.getProfessor().getId());
+			 
+			if(verificaAtribuicaoDisciplina == null) {
+				atribuirDisciplinaService.atribuirDisciplinaProfessor(atribuicaoDisciplina);
+			}else{
+				result.include("disciplinaAtribuida","A disciplina selecionada ja está atribuida ao professor");
+			}
+					
+		}
+				
+		result.redirectTo(this).listar();
+	}
+	
+	@Get("/professor/atribuicaoProfessor/delete/{id}")
+	@Transactional
+	public void removeDisciplinaPofessor(Long id) {		
+		AtribuicaoDisciplina atribuicaoDisciplina = atribuirDisciplinaService.buscaPorId(id);
+		atribuirDisciplinaService.remove(atribuicaoDisciplina);
 		result.redirectTo(this).listar();
 	}
 	
