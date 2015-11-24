@@ -179,17 +179,7 @@
 				
 			</div>
 		</div>
-	</div>	
-	
-	<div id="dialog-message" title="Download complete" >
-  		<p>
-    		<span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
-    			Your files have downloaded successfully into the My Downloads folder.
-  		</p>
-  		<p>
-    		Currently using <b>36% of your storage space</b>.
-  		</p>
-	</div>
+	</div>		
 	
 <script type="text/javascript" src="${url}/js/jquery.js" ></script>	
 <script type="text/javascript" src="${url}/js/jquery-ui.js" ></script>

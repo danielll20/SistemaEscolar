@@ -38,8 +38,12 @@
 				 	   <td>${curso.nome}</td>
 				 	   <td>${curso.valorMatricula}</td>              
 				       <td>
-				         <a href="${url}/curso/${curso.id}"><img src="${url}/css/images/edit.png" width="16" height="16" title="Alterar curso"/></a>
-				         <a href="${url}/curso/delete/${curso.id}"><img src="${url}/css/images/delete.png" width="16" height="16" title="Excluir curso"/></a>
+				          <a href="${url}/curso/${curso.id}"><img src="${url}/css/images/edit.png" width="16" height="16" title="Alterar curso"/></a>
+				          <a href="${url}/curso/delete/${curso.id}"><img src="${url}/css/images/delete.png" width="16" height="16" title="Excluir curso"/></a>
+				          <a href="javascript:carregaModalAtribuirDisciplinaCurso(${curso.id});">
+							 <img src="${url}/css/images/atribuicao.png" width="16" height="16" title="Atribuir disciplinas ao curso"
+	       					 data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"/>
+			     		</a>
 				       </td>
 				     </tr>
 				   </c:forEach>
@@ -47,11 +51,29 @@
 			</table>		
 		</div>  
 	</div>
+	
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+	</div>
+	
 	<script type="text/javascript" src="${url}/js/jquery.js" ></script>	
 	<script type="text/javascript" src="${url}/js/jquery-ui.js" ></script>
 	<script type="text/javascript" src="${url}/js/jquery-1.11.3.min.js" ></script>
 	<script type="text/javascript" src="${url}/js/jquery.dataTables.min.js" ></script>
 	<script type="text/javascript" src="${url}/js/dataTables.bootstrap.min.js" ></script>
-	<script type="text/javascript" src="${url}/js/configuracaoDataTableBootstrap.js" ></script>          
+	<script type="text/javascript" src="${url}/js/configuracaoDataTableBootstrap.js" ></script>   
+	<script type="text/javascript">			
+		function carregaModalAtribuirDisciplinaCurso(id){  
+	        var url = "${url}/curso/atribuirDisciplinaCurso/"+id;  
+	        $.ajax({  
+	            type: 'GET',  
+	            url: url,  
+	            dataType: 'text',  
+	            cache: 'false',  
+	            success: function(data){                	
+	            	$('#exampleModal').html(data);             
+	            }   
+	        });  
+	     }  					
+	</script>       
    </body>      
 </html>

@@ -43,7 +43,7 @@
 			  					<a href="${url}/professor/${professor.id}"><img src="${url}/css/images/edit.png" width="16" height="16" title="Alterar professor"/></a>
 								<a href="${url}/professor/delete/${professor.id}"><img src="${url}/css/images/delete.png" width="16" height="16" title="Excluir professor"/></a>			   
 								<a href="javascript:carregaModalAtribuirDisciplina(${professor.id});">
-									<img src="${url}/css/images/atribuicao.png" width="16" height="16" title="Atribuir disciplina para o professor"
+									<img src="${url}/css/images/atribuicao.png" width="16" height="16" title="Atribuir disciplinas para o professor"
 			       					data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"/>
 			     				</a>		          		         
 			   				</td>  		         		          		     

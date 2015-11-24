@@ -69,6 +69,13 @@
               
               <li class="active"><a href="${url}/matricula/novo">Matrículas</a></li>
               
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Frequência<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="${url}/frequencia/novo">Alunos</a></li>
+                </ul>
+              </li> 
+              
                <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pagamentos<span class="caret"></span></a>
                 <ul class="dropdown-menu">

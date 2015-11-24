@@ -19,11 +19,11 @@
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>
-			<h4 class="modal-title" id="exampleModalLabel">Atribuir Disciplina(s) ao Professor: ${professorPorId.nome}</h4>
+			<h4 class="modal-title" id="exampleModalLabel">Atribuir Disciplina(s) ao Curso: ${cursoPorId.nome}</h4>
 		</div>
 		
 		<div class="modal-body">
-			<form id="cadastrarAluno" action="${url}/professor/adicionaAtribuicaoDiscipina/${professorPorId.id}" method="post">					
+			<form id="cadastrarAluno" action="${url}/curso/adicionaDisciplinaCurso/${cursoPorId.id}" method="post">					
 				<div class="form-group">
 					<label class="col-sm-0 control-label" for="disciplina">Disciplinas:</label><br>						
 					<c:forEach items='${disciplinas}' var='disciplina' varStatus="s"> 
@@ -37,25 +37,25 @@
 				
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h4>Disciplina(s) cadastradas</h4>  	 
+						<h4>Curso(s) cadastrado(s)</h4>  	 
 					</div>   
 				  
 				    <div class="panel-body">
-					  	<table class="table table-striped table-bordered" id="lista-disciplinas" cellspacing="0" width="100%">		
+					  	<table class="table table-striped table-bordered" id="lista-cursos" cellspacing="0" width="100%">		
 							<thead>						  
 								<tr>		    
-							  		<th>Disciplina(s)</th> 
+							  		<th>Cursos(s)</th> 
 							  		<th>Ações</th>       		    
 								</tr>
 							</thead>
 					      
 							<tbody>
-							  	<c:forEach items="${disciplinasPorProfessor}" var="disciplinasPorProfessor">
+							  	<c:forEach items="${disciplinasPorCurso}" var="disciplinasPorCurso">
 								    <tr>		       
-										<td>${disciplinasPorProfessor.disciplina.nome}</td>
+										<td>${disciplinasPorCurso.disciplina.nome}</td>
 								
 								      	<td>
-								        	<a href="${url}/professor/atribuicaoProfessor/delete/${disciplinasPorProfessor.disciplina.id}"><img src="${url}/css/images/delete.png" width="16" height="16" title="Excluir aluno"/></a>
+								        	<a href="${url}/curso/atribuirDisciplinaCurso/delete/${disciplinasPorCurso.disciplina.id}"><img src="${url}/css/images/delete.png" width="16" height="16" title="Excluir disciplina"/></a>
 								      	</td>
 								    </tr>
 					  			</c:forEach>
@@ -66,7 +66,7 @@
 				<!-- -------------------------TABELA PARA LISTAR DISCIPLINAS DOS PROFESSORES----------------------------------------------- -->
 							
 				<div class="form-group">							
-					<input type="hidden" class="form-control" id="nome" name="atribuicaoDisciplina.professor.id" value="${professorPorId.id}">
+					<input type="hidden" class="form-control" id="nome" name="atribuirDisciplinaCurso.curso.id" value="${cursoPorId.id}">
 				</div>											
 																																
 				<div class="modal-footer">
@@ -87,7 +87,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		//Id da tabela
-		$('#lista-disciplinas').dataTable({
+		$('#lista-cursos').dataTable({
 			language: {
 				"sEmptyTable": "Nenhum registro encontrado",
 			    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
