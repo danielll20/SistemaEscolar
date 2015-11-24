@@ -15,8 +15,12 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.Validator;
+import br.com.sistemaescolar.modelo.AtribuirDisciplinaCurso;
 import br.com.sistemaescolar.modelo.Curso;
+import br.com.sistemaescolar.modelo.Disciplina;
+import br.com.sistemaescolar.service.AtribuirDisciplinaCursoService;
 import br.com.sistemaescolar.service.CursoService;
+import br.com.sistemaescolar.service.DisciplinaService;
 
 /**
  * @author Daniel Correia
@@ -34,6 +38,12 @@ public class CursoController {
 	
 	@Inject
 	private CursoService cursoService;
+	
+	@Inject
+	private DisciplinaService disciplinaService;
+	
+	@Inject
+	private AtribuirDisciplinaCursoService atribuirDisciplinaCursoService;
 	
 	@Path("/curso/novo")
 	public void novo() {
@@ -71,6 +81,54 @@ public class CursoController {
 	public void remove(Long id) {
 		Curso curso = cursoService.buscarPorId(id);
 		cursoService.remove(curso);
+		result.redirectTo(this).listar();
+	}
+	
+	@Get("/curso/atribuirDisciplinaCurso/{curso.id}")
+	public void atribuirDisciplinaCurso(Curso curso) {
+		//Busca todos os cursos pelo id que vem da url.
+		Curso cursoId = cursoService.buscarPorId(curso.getId());		
+		result.include("cursoPorId", cursoId);
+		
+		//Lista todas as disciplinas para serem populadas no modal atribuirDisciplinaCurso.
+		List<Disciplina> disciplinas = disciplinaService.listarTodos();
+		result.include("disciplinas", disciplinas);
+		
+		//Lista todas as disciplinas de acordo com o id do curso selecionado para popular a tabela
+		//no modal atribuirDisciplinaCurso.
+		List<Disciplina> disciplinasPorCurso =  disciplinaService.listaDisciplinaPorCurso(curso.getId());
+		result.include("disciplinasPorCurso", disciplinasPorCurso);
+	}
+	
+	@Post("/curso/adicionaDisciplinaCurso/{curso.id}")
+	public void adicionaDisciplinaCurso(Curso curso, List<Disciplina> disciplinas) {
+		
+		for (Disciplina disciplina : disciplinas) {			
+			AtribuirDisciplinaCurso atribuirDisciplinaCurso = new AtribuirDisciplinaCurso();
+			atribuirDisciplinaCurso.setCurso(curso);
+			atribuirDisciplinaCurso.setDisciplina(disciplina);
+			
+			AtribuirDisciplinaCurso verificaAtribuicaoDisciplina = atribuirDisciplinaCursoService
+					.verificaAtribuicaoDisciplinaCurso(atribuirDisciplinaCurso
+							.getDisciplina().getId(), atribuirDisciplinaCurso
+							.getCurso().getId());
+			 
+			if(verificaAtribuicaoDisciplina == null) {
+				atribuirDisciplinaCursoService.atribuirDisciplinaCurso(atribuirDisciplinaCurso);
+			}else{
+				result.include("disciplinaAtribuida","A disciplina selecionada ja está atribuida ao curso");
+			}
+					
+		}
+				
+		result.redirectTo(this).listar();
+	}
+	
+	@Get("/curso/atribuirDisciplinaCurso/delete/{id}")
+	@Transactional
+	public void removeDisciplinaCurso(Long id) {		
+		AtribuirDisciplinaCurso atribuirDisciplinaCurso = atribuirDisciplinaCursoService.buscaPorId(id);
+		atribuirDisciplinaCursoService.remove(atribuirDisciplinaCurso);
 		result.redirectTo(this).listar();
 	}
 
