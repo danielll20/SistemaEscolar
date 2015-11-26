@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import br.com.sistemaescolar.modelo.Aluno;
+import br.com.sistemaescolar.modelo.Matricula;
 
 /**
  * @author Daniel Correia
@@ -21,14 +21,15 @@ public class FrequenciaDao extends GenericDao {
 	@Inject
 	private EntityManager entityManager;
 	
-	public List<Aluno> listarAlunosPorCursoTurma(Long id) {
+	public List<Matricula> listarAlunosPorCursoTurma(Long id) {
 		
 		StringBuffer jpql = new StringBuffer();
-		jpql.append(" select a from Matricula m ");
-		jpql.append(" inner join m.aluno a ");
-		jpql.append(" inner join m.turma t ");
-		jpql.append(" inner join t.curso c ");
-		jpql.append(" where c.id = :id ");
+		jpql.append(" select m from Matricula m ");
+		jpql.append(" inner join fetch m.aluno a ");
+		jpql.append(" inner join fetch m.turma t ");
+		jpql.append(" where t.curso.id = :id ");
+//		jpql.append(" inner join t.curso c ");
+//		jpql.append(" where c.id = :id ");
 				
 		Query query = entityManager.createQuery(jpql.toString());
 		query.setParameter("id", id);

@@ -47,7 +47,7 @@ public class Matricula {
 	@Column(name = "VALOR_TOTAL")
 	private Double valorTotal;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.LAZY)
 	@JoinColumn(name = "ID_MATRICULA")
 	private List<Boleto> boleto;
 	
@@ -55,11 +55,11 @@ public class Matricula {
 	@JoinColumn(name = "ID_ALUNO")
 	private Aluno aluno;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "ID_TURMA")
 	private Turma turma;
 	
-	@OneToOne
+	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "ID_SITUACAO")
 	private Situacao situacao;
 

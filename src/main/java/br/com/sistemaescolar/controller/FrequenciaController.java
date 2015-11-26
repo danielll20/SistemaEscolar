@@ -13,7 +13,7 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
-import br.com.sistemaescolar.modelo.Aluno;
+import br.com.sistemaescolar.modelo.Curso;
 import br.com.sistemaescolar.modelo.Frequencia;
 import br.com.sistemaescolar.modelo.Matricula;
 import br.com.sistemaescolar.service.FrequenciaService;
@@ -45,19 +45,23 @@ public class FrequenciaController {
 
 	@Get("/frequencia/aluno/pesquisar")
 	public void listarAlunosPorCursoTurma(Long id) {
-		List<Aluno> frequenciaAlunos = frequenciaService.listarAlunosPorCursoTurma(id);
+		List<Matricula> frequenciaAlunos = frequenciaService.listarAlunosPorCursoTurma(id);
 		result.include("alunosPorCursoTurma", frequenciaAlunos);
 		result.redirectTo(this).novo();
 	}
 	
 	@Post("/frequencia/adicionaFrequencia")
-	public void adicionaFrequencia(List<Matricula> alunosPorCursoTurma, Date dataAtual) {
+	public void adicionaFrequencia(List<Matricula> alunosPorCursoTurma, Date dataAtual, Long idCurso) {
 	
 		for (Matricula matricula : alunosPorCursoTurma) {
+			Curso curso = new Curso();
+			curso.setId(idCurso);
+			
 			Frequencia frequencia = new Frequencia();
 			frequencia.setData(dataAtual);
 			frequencia.setPresente("F");
 			frequencia.setMatricula(matricula);
+			frequencia.setCurso(curso);			
 			
 			frequenciaService.insert(frequencia);			
 		}

@@ -50,23 +50,24 @@
 			<thead>						  
 			  <tr>	
 			  	<th>Aluno</th>	  
-			  	<th>Faltas</th>          
+			  	<th>Faltas</th>			  	       
 			  </tr>
 			</thead>
 	      
 			<tbody>			
-			  	<c:forEach items="${alunosPorCursoTurma}" var="aluno">
+			  	<c:forEach items="${alunosPorCursoTurma}" var="alunosCurso">
 			     <tr>		       
-			 	   <td style="width: 500px;">${aluno.nome}</td>
-			 	   <td><input type="checkbox" name="alunosPorCursoTurma[${s.index}].id" value='${aluno.id}'></td>			 	   
+			 	   <td style="width: 500px;">${alunosCurso.aluno.nome}</td>
+			 	   <td><input type="checkbox" name="alunosPorCursoTurma[${s.index}].id" value='${alunosCurso.aluno.id}'></td>	
+			 	   <td style="width: 500px; display: none;"><input type="hidden" name="idCurso" value="${alunosCurso.turma.curso.id}"></td>		 	   
 			     </tr>			     			     			     
 			   </c:forEach>			   			   				   	
 			</tbody>
 		</table>
 		<input class="form-control" name="dataAtual" type="hidden" id="data" readonly="true"/>
 		
-		<div class="botoes">
-			<input type="submit" value="Salvar" class="btn btn-primary"/>
+		<div class="botoes" style="margin-left: 0px;">
+			<input type="submit" value="Enviar" class="btn btn-primary" />
 		</div>
 		
 	</form>

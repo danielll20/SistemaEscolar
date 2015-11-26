@@ -8,8 +8,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import br.com.sistemaescolar.dao.FrequenciaDao;
-import br.com.sistemaescolar.modelo.Aluno;
 import br.com.sistemaescolar.modelo.Frequencia;
+import br.com.sistemaescolar.modelo.Matricula;
 
 /**
  * @author Daniel Correia
@@ -21,7 +21,7 @@ public class FrequenciaService {
 	@Inject 
 	private FrequenciaDao frequenciaDao;
 	
-	public List<Aluno> listarAlunosPorCursoTurma(Long id) {
+	public List<Matricula> listarAlunosPorCursoTurma(Long id) {
 		return frequenciaDao.listarAlunosPorCursoTurma(id);
 	}
 

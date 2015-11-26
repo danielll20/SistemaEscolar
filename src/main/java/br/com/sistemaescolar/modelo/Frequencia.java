@@ -34,6 +34,10 @@ public class Frequencia {
 	
 	@Column(name = "PRESENTE")
 	private String presente;
+	
+	@OneToOne
+	@JoinColumn(name = "ID_CURSO")
+	private Curso curso;
 
 	public Long getId() {
 		return id;
@@ -65,6 +69,14 @@ public class Frequencia {
 
 	public void setPresente(String presente) {
 		this.presente = presente;
+	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
 	}
 	
 	
