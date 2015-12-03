@@ -27,7 +27,7 @@ public class LoginController {
 	private Result result;
 	
 	@Inject
-	private UsuarioService UsuarioService;
+	private UsuarioService usuarioService;
 	
 	@Inject
 	private Validator validator;
@@ -40,13 +40,15 @@ public class LoginController {
     }
 	
 	@Post @Public
-	public void autentica(Usuario usuario) {
-		if(!UsuarioService.existe(usuario)) {
+	public void autentica(Usuario usuario) {	
+		Usuario usuarioVerificado = usuarioService.existe(usuario);
+		
+		if(usuarioVerificado == null) {
 			validator.add(new I18nMessage("login", "Teste"));
 			validator.onErrorUsePageOf(this).login();
 		}
 		
-		usuarioLogado.setUsuario(usuario);
+		usuarioLogado.setUsuario(usuarioVerificado);
 		result.redirectTo(InicioController.class).inicio();
 	}
 	

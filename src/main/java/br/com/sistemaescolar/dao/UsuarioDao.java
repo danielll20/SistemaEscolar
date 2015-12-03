@@ -5,6 +5,7 @@ package br.com.sistemaescolar.dao;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import br.com.sistemaescolar.modelo.Usuario;
@@ -19,7 +20,7 @@ public class UsuarioDao {
 	@Inject
 	private EntityManager entityManager;
 	
-	public boolean existe(Usuario usuario) {
+	public Usuario existe(Usuario usuario) throws NoResultException {
 		
 		StringBuffer jpql = new StringBuffer();
 		jpql.append(" select u from Usuario u ");
@@ -29,7 +30,9 @@ public class UsuarioDao {
 		Query query = entityManager.createQuery(jpql.toString());
 		query.setParameter("email", usuario.getEmail());
 		query.setParameter("senha", usuario.getSenha());
+		
+		Usuario retornoUsuario = (Usuario) query.getSingleResult();
 					
-		return !query.getResultList().isEmpty();
+		return retornoUsuario;
 	}
 }

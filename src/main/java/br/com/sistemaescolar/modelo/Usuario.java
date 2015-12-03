@@ -92,7 +92,7 @@ public class Usuario {
 	public boolean equals(Object obj) {
 		if(obj instanceof Usuario){
 			Usuario user = (Usuario) obj;
-			return user.getEmail().equals(getEmail());
+			return user.getNome().equals(getNome());
 		}
 		
 		return false;
