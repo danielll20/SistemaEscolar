@@ -73,7 +73,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestão<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="${url}/frequencia/novo">Frequência</a></li>
-                  <li><a href="${url}/notas/lancar-notas">Lançar Notas</a></li> 
+                  <li><a href="${url}/notas/lancar">Lançar Notas</a></li> 
                 </ul>
               </li> 
               
@@ -87,8 +87,8 @@
               </li>                            
                            
               <li><a href="#">Relatórios</a></li>       
-              <li class="logoff"><a href="#contact">Sair</a></li>                                      
-              <li class="textoUsuario">Bem vindo: Usuário.</li>    
+              <li class="logoff"><a href="${url}/login/logout">Sair</a></li>                                      
+              <li class="textoUsuario">Bem vindo: ${usuarioLogado.usuario.nome}.</li>    
                                     
             </ul>
           </div><!--/.nav-collapse -->          
