@@ -82,5 +82,13 @@ public class TurmaController {
 		turmaService.remove(turma);
 		result.redirectTo(this).listar();
 	}
+	
+	@Get("/turma/atribuirProfessorTurma/{professor.id}")
+	public void atribuirProfessorTurma(Turma turma) {
+		//Busca a turma pelo id selecionada na tabela e exibe
+		//seus dados para inseri-la no titulo do modal.
+		Turma turmaId = turmaService.buscarPorId(turma.getId());
+		result.include("turmaPorId", turmaId);
+	}
 
 }

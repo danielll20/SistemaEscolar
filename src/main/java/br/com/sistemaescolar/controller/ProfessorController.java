@@ -85,7 +85,8 @@ public class ProfessorController {
 	
 	@Get("/professor/atribuirDisciplina/{professor.id}")
 	public void atribuirDisciplina(Professor professor) {
-		//Busca todos os professores pelo id que vem da url.
+		//Busca o professor pelo id selecionado na tabela e exibe seus dados
+		//para inseri-lo no titulo do modal.
 		Professor professorId = professorService.buscarPorId(professor.getId());		
 		result.include("professorPorId", professorId);
 		

@@ -83,6 +83,9 @@ public class Professor {
 	@Temporal(value = TemporalType.DATE)
 	@Column(name = "DATA_NASCIMENTO")
 	private Date dataNascimento;
+	
+	@ManyToMany(mappedBy = "professores")
+	private List<Turma> turmas;
 
 	public Long getId() {
 		return id;
@@ -218,6 +221,14 @@ public class Professor {
 
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
+	}
+
+	public List<Turma> getTurmas() {
+		return turmas;
+	}
+
+	public void setTurmas(List<Turma> turmas) {
+		this.turmas = turmas;
 	}
 		
 }
