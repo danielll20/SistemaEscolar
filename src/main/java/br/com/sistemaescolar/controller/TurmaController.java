@@ -15,8 +15,13 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.Validator;
+import br.com.sistemaescolar.modelo.AtribuicaoDisciplina;
+import br.com.sistemaescolar.modelo.AtribuirProfessorTurma;
+import br.com.sistemaescolar.modelo.Professor;
 import br.com.sistemaescolar.modelo.Turma;
+import br.com.sistemaescolar.service.AtribuirProfessorTurmaService;
 import br.com.sistemaescolar.service.CursoService;
+import br.com.sistemaescolar.service.ProfessorService;
 import br.com.sistemaescolar.service.TurmaService;
 
 /**
@@ -31,6 +36,12 @@ public class TurmaController {
 	
 	@Inject
 	private CursoService cursoService;
+	
+	@Inject
+	private ProfessorService professorService;
+	
+	@Inject
+	private AtribuirProfessorTurmaService atribuirProfessorTurmaService;
 
 	@Inject
 	private Result result;
@@ -83,12 +94,33 @@ public class TurmaController {
 		result.redirectTo(this).listar();
 	}
 	
-	@Get("/turma/atribuirProfessorTurma/{professor.id}")
+	@Get("/turma/atribuirProfessorTurma/{turma.id}")
 	public void atribuirProfessorTurma(Turma turma) {
 		//Busca a turma pelo id selecionada na tabela e exibe
 		//seus dados para inseri-la no titulo do modal.
 		Turma turmaId = turmaService.buscarPorId(turma.getId());
 		result.include("turmaPorId", turmaId);
+		
+		//Busca todos os professores com suas disciplinas e exibe na dialog
+		//atribuirProfesorTurma em forma de checkBox.
+		List<AtribuicaoDisciplina> professores = professorService.listarProfessorDisciplina();
+		result.include("professores", professores);
+				
+		List<AtribuirProfessorTurma> professoresDasTurmas = atribuirProfessorTurmaService.listarProfessoresDaTurma(turma.getId());		
+		result.include("professoresDasTurmas", professoresDasTurmas);
+	}
+	
+	@Post("/turma/adicionaProfessorTurma/{turmaPorId.id}")	
+	public void adicionaProfessorTurma(Turma turmaPorId, List<Professor> professores) {
+		for (Professor professor : professores) {
+			AtribuirProfessorTurma atribuirProfessorTurma = new AtribuirProfessorTurma();
+			atribuirProfessorTurma.setTurma(turmaPorId);
+			atribuirProfessorTurma.setProfessor(professor);
+			
+			atribuirProfessorTurmaService.insert(atribuirProfessorTurma);
+		}
+		
+		result.redirectTo(this).listar();
 	}
 
 }

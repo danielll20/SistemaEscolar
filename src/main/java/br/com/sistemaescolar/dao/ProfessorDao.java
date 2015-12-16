@@ -8,6 +8,8 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+
+import br.com.sistemaescolar.modelo.AtribuicaoDisciplina;
 import br.com.sistemaescolar.modelo.Professor;
 
 /**
@@ -27,6 +29,18 @@ public class ProfessorDao extends GenericDao {
 	
 	public Professor buscaPorId(Long id) {
 		return entityManager.find(Professor.class, id);
+	}
+
+	public List<AtribuicaoDisciplina> listarProfessorDisciplina() {
+		StringBuffer jpql = new StringBuffer();
+		
+		jpql.append(" select ad from AtribuicaoDisciplina ad ");
+		jpql.append(" inner join ad.disciplina d ");
+		jpql.append(" inner join ad.professor p ");
+		
+		Query query = entityManager.createQuery(jpql.toString());
+		
+		return query.getResultList();
 	}
 
 }

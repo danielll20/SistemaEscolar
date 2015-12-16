@@ -19,16 +19,16 @@
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>
-			<h4 class="modal-title" id="exampleModalLabel">Atribuir professor a turma: ${turmaPorId.nome}</h4>
+			<h4 class="modal-title" id="exampleModalLabel">Atribuir professor a ${turmaPorId.curso.nome} ${turmaPorId.nome} ${turmaPorId.turno}</h4>
 		</div>
 		
 		<div class="modal-body">
-			<form id="cadastrarAluno" action="${url}/professor/adicionaAtribuicaoDiscipina/${professorPorId.id}" method="post">					
+			<form id="cadastrarAluno" action="${url}/turma/adicionaProfessorTurma/${turmaPorId.id}" method="post">					
 				<div class="form-group">
-					<label class="col-sm-0 control-label" for="disciplina">Disciplinas:</label><br>						
-					<c:forEach items='${disciplinas}' var='disciplina' varStatus="s"> 
+					<label class="col-sm-0 control-label" for="professor">Professor(es):</label><br>						
+					<c:forEach items='${professores}' var='professorDisciplina' varStatus="s"> 
 						<label class="checkbox-inline" style="margin-left: 0px;">
-						<input type="checkbox" name="disciplinas[${s.index}].id" value='${disciplina.id}'>${disciplina.nome}
+						<input type="checkbox" name="professores[${s.index}].id" value='${professorDisciplina.professor.id}'>${professorDisciplina.professor.nome} - (${professorDisciplina.disciplina.nome})
 						</label>
 					</c:forEach>
 				</div>
@@ -37,22 +37,29 @@
 				
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h4>Disciplina(s) cadastradas</h4>  	 
+						<h4>Professor(es) cadastrado(s)</h4>	 
 					</div>   
 				  
 				    <div class="panel-body">
 					  	<table class="table table-striped table-bordered" id="lista-disciplinas" cellspacing="0" width="100%">		
 							<thead>						  
 								<tr>		    
-							  		<th>Disciplina(s)</th> 
+							  		<th>Professor</th>
+							  		<th>Disciplina</th>
+							  		<th>Id Turma</th>  
 							  		<th>Ações</th>       		    
 								</tr>
 							</thead>
 					      
 							<tbody>
-							  	<c:forEach items="${disciplinasPorProfessor}" var="disciplinasPorProfessor">
+							  	<c:forEach items="${professoresDasTurmas}" var="professorTurma" varStatus="s">
 								    <tr>		       
-										<td>${disciplinasPorProfessor.disciplina.nome}</td>
+										<td>
+											${professorTurma.professor.nome}											
+										</td>
+<%-- 										<td>${professorTurma.turma.curso.disciplinas[s.index].nome}</td> --%>
+										<td>${professorTurma.professor.disciplinas[s.index].nome}</td>
+										<td>${professorTurma.turma.id}</td>
 								
 								      	<td>
 								        	<a href="${url}/professor/atribuicaoProfessor/delete/${disciplinasPorProfessor.disciplina.id}"><img src="${url}/css/images/delete.png" width="16" height="16" title="Excluir aluno"/></a>

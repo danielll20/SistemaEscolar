@@ -8,6 +8,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import br.com.sistemaescolar.dao.ProfessorDao;
+import br.com.sistemaescolar.modelo.AtribuicaoDisciplina;
 import br.com.sistemaescolar.modelo.Professor;
 
 /**
@@ -37,6 +38,10 @@ public class ProfessorService {
 	
 	public void atualizar(Professor professor) {
 		professorDao.update(professor);
+	}
+
+	public List<AtribuicaoDisciplina> listarProfessorDisciplina() {
+		return professorDao.listarProfessorDisciplina();
 	}
 
 }
