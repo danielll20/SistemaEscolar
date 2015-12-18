@@ -17,7 +17,8 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	@Column(name = "ID")
+	private Long id;
 	
 	@Column(name = "NOME")	
 	private String nome;
@@ -35,11 +36,11 @@ public class Usuario {
 	@Column(name = "DATA_CADASTRO")
 	private Date dataCadastro;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -85,16 +86,43 @@ public class Usuario {
 
 	@Override
 	public int hashCode() {
-		return getId();
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof Usuario){
-			Usuario user = (Usuario) obj;
-			return user.getNome().equals(getNome());
-		}
-		
-		return false;
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
+	
+
+	
+//	@Override
+//	public Long hashCode() {
+//		return getId();
+//	}
+//	
+//	@Override
+//	public boolean equals(Object obj) {
+//		if(obj instanceof Usuario){
+//			Usuario user = (Usuario) obj;
+//			return user.getNome().equals(getNome());
+//		}
+//		
+//		return false;
+//	}
 }

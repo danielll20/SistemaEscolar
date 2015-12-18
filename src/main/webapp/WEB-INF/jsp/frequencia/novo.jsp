@@ -25,9 +25,14 @@
 			<div class="col-sm-3">
 				<select class="selectBox" name="id" id='matricula.turma.id'>
 					<option id="curso">Selecione o Curso/Turma</option>
-					<c:forEach items='${turmas}' var='turma'>
-						<option value='${turma.id}'
-							${turma.id == matricula.turma.id ? 'selected' : ''}>${turma.curso.nome} - ${turma.nome} - ${turma.turno}</option>
+<%-- 					<c:forEach items='${turmas}' var='turma'> --%>
+<%-- 						<option value='${turma.id}' --%>
+<%-- 							${turma.id == matricula.turma.id ? 'selected' : ''}>${turma.curso.nome} - ${turma.nome} - ${turma.turno}</option> --%>
+<%-- 					</c:forEach> --%>
+					
+					<c:forEach items='${turmas}' var='exibeTurma'>
+						<option value='${exibeTurma.turma.id}'
+							${exibeTurma.id == matricula.turma.id ? 'selected' : ''}>${exibeTurma.turma.curso.nome} - ${exibeTurma.turma.nome} - ${exibeTurma.turma.turno}</option>
 					</c:forEach>
 				</select>
 			</div>

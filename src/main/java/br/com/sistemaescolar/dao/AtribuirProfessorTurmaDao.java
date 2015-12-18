@@ -25,10 +25,23 @@ public class AtribuirProfessorTurmaDao extends GenericDao {
 		
 		jpql.append(" select apt from AtribuirProfessorTurma apt ");
 		jpql.append(" where apt.turma.id = :idTurma ");
-//		jpql.append(" where a.nome = :nome ");
 		
 		Query query = entityManager.createQuery(jpql.toString());
 		query.setParameter("idTurma", idTurma);
+		
+		return query.getResultList();
+	}
+
+	public List<AtribuirProfessorTurma> listarTurmasPorUsuario(Long idUsuario) {
+		StringBuffer jpql = new StringBuffer();
+		
+		jpql.append(" select apt from AtribuirProfessorTurma apt ");
+		jpql.append(" inner join apt.professor p ");
+		jpql.append(" inner join apt.turma t ");
+		jpql.append(" where apt.professor.usuario.id = :idUsuario ");
+		
+		Query query = entityManager.createQuery(jpql.toString());
+		query.setParameter("idUsuario", idUsuario);
 		
 		return query.getResultList();
 	}

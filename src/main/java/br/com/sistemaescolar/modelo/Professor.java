@@ -86,6 +86,10 @@ public class Professor {
 	
 	@ManyToMany(mappedBy = "professores")
 	private List<Turma> turmas;
+	
+	@OneToOne
+	@JoinColumn(name = "id_usuario")
+	private Usuario usuario;
 
 	public Long getId() {
 		return id;
@@ -229,6 +233,14 @@ public class Professor {
 
 	public void setTurmas(List<Turma> turmas) {
 		this.turmas = turmas;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 		
 }

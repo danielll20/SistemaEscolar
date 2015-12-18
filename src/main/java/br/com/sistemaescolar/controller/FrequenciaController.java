@@ -13,9 +13,11 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.sistemaescolar.modelo.AtribuirProfessorTurma;
 import br.com.sistemaescolar.modelo.Curso;
 import br.com.sistemaescolar.modelo.Frequencia;
 import br.com.sistemaescolar.modelo.Matricula;
+import br.com.sistemaescolar.service.AtribuirProfessorTurmaService;
 import br.com.sistemaescolar.service.FrequenciaService;
 import br.com.sistemaescolar.service.TurmaService;
 
@@ -34,13 +36,21 @@ public class FrequenciaController {
 	private FrequenciaService frequenciaService;		
 	
 	@Inject
+	private AtribuirProfessorTurmaService atribuirProfessorTurmaService;
+	
+	@Inject
+	private UsuarioLogado usuarioLogado;
+	
+	@Inject
 	private TurmaService turmaService;
 	
 	@Path("/frequencia/novo")
 	public void novo() {	
 		//Obs: Criar outro método para listar todas as Turmas 
 		//de acordo com o professor logado.
-		result.include("turmas", turmaService.listarTodas());
+//		result.include("turmas", turmaService.listarTodas());
+		List<AtribuirProfessorTurma> professorTurmas = atribuirProfessorTurmaService.listarTurmasPorUsuario(usuarioLogado.getUsuario().getId());
+		result.include("turmas", professorTurmas);
 	}
 
 	@Get("/frequencia/aluno/pesquisar")

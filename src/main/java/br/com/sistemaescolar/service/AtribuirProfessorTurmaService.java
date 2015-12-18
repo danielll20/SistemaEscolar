@@ -27,4 +27,8 @@ public class AtribuirProfessorTurmaService {
 	public List<AtribuirProfessorTurma> listarProfessoresDaTurma(Long idTurma) {
 		return atribuirProfessorTurmaDao.listarProfessoresDaTurma(idTurma);
 	}
+	
+	public List<AtribuirProfessorTurma> listarTurmasPorUsuario(Long idUsuario) {
+		return atribuirProfessorTurmaDao.listarTurmasPorUsuario(idUsuario);
+	}
 }

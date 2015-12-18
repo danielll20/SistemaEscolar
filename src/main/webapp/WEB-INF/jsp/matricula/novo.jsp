@@ -42,12 +42,14 @@
 		  	<th>Aluno</th> 
 		  	<th>Data da Matrícula</th>       
 		    <th>Ano</th>
-		    <th>Situação</th>		             
+		    <th>Situação</th>
+		    <th>Id Curso</th>		             
 		    <th>Curso</th>
+		    <th>Id Turma</th>
 		    <th>Turma</th>
 		    <th>Turno</th>
 		    <th>Entrada</th>
-		    <th>Saída</th>
+		    <th>Saída</th>		    
 		  </tr>
 		</thead>
       
@@ -58,7 +60,9 @@
 		       <td><fmt:formatDate value="${matricula.dataMatricula}" /></td>		       
 		       <td><fmt:formatDate value="${matricula.dataMatricula}" pattern="yyyy"/></td> 
 		       <td>${matricula.situacao.descricao}</td>  		       
+		       <td>${matricula.turma.curso.id}</td>
 		       <td>${matricula.turma.curso.nome}</td>
+		       <td>${matricula.turma.id}</td>
 		       <td>${matricula.turma.nome}</td>
 		       <td>${matricula.turma.turno}</td>
 		       <td>${matricula.turma.horarioEntrada}</td>

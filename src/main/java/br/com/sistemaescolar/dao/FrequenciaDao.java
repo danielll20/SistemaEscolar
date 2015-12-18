@@ -27,7 +27,7 @@ public class FrequenciaDao extends GenericDao {
 		jpql.append(" select m from Matricula m ");
 		jpql.append(" inner join fetch m.aluno a ");
 		jpql.append(" inner join fetch m.turma t ");
-		jpql.append(" where t.curso.id = :id ");
+		jpql.append(" where t.id = :id ");
 //		jpql.append(" inner join t.curso c ");
 //		jpql.append(" where c.id = :id ");
 				
