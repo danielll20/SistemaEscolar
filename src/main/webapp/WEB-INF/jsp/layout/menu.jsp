@@ -40,12 +40,12 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastro<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="${url}/aluno/novo">Aluno</a></li>
-                  <li><a href="${url}/disciplina/novo">Disciplina</a></li>
-                  <li><a href="${url}/funcionario/novo">Funcionário</a></li>
-                  <li><a href="${url}/instituicao/novo">Instituição</a></li>
                   <li><a href="${url}/professor/novo">Professor</a></li>
+                  <li><a href="${url}/funcionario/novo">Funcionário</a></li>
                   <li><a href="${url}/curso/novo">Curso</a></li>
                   <li><a href="${url}/turma/novo">Turma</a></li>
+                  <li><a href="${url}/disciplina/novo">Disciplina</a></li>                  
+                  <li><a href="${url}/instituicao/novo">Instituição</a></li>                       
                                     
 <!--                   <li role="separator" class="divider"></li> -->
 <!--                   <li class="dropdown-header">Nav header</li> -->
@@ -58,12 +58,12 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Listar<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="${url}/aluno/listar">Alunos</a></li>
-                  <li><a href="${url}/disciplina/listar">Disciplinas</a></li>
-                  <li><a href="${url}/funcionario/listar">Funcionários</a></li>
-                  <li><a href="${url}/instituicao/listar">Instituição</a></li>
                   <li><a href="${url}/professor/listar">Professores</a></li>
+                  <li><a href="${url}/funcionario/listar">Funcionários</a></li>
                   <li><a href="${url}/curso/listar">Cursos</a></li>
-                  <li><a href="${url}/turma/listar">Turmas</a></li>                                    
+                  <li><a href="${url}/turma/listar">Turmas</a></li>
+                  <li><a href="${url}/disciplina/listar">Disciplinas</a></li>                  
+                  <li><a href="${url}/instituicao/listar">Instituição</a></li>                                                      
                 </ul>
               </li> 
               

@@ -26,9 +26,11 @@
 </div>
 
 <div class="form-group">
-	<label class="col-sm-2 control-label" for="dataNascimento">Data Nascimento:</label>
+	<label class="col-sm-2 control-label" for="dataNascimento">Data
+		de Nascimento:</label>
 	<div class="col-sm-5">
-		<input class="form-control" type="text" id="dataNascimento" name="funcionario.dataNascimento" value="${funcionario.dataNascimento}"/>
+		<input class="form-control" type="text" id="dataNascimento"
+			name="professor.dataNascimento" value="<fmt:formatDate value="${professor.dataNascimento}" dateStyle="medium" /> "/>
 	</div>
 </div>
 
@@ -120,7 +122,14 @@
 <div class="form-group">
 	<label class="col-sm-2 control-label" for="sexo">Sexo:</label>
 	<div class="col-sm-5">
-		<input class="form-control" type="text" id="sexo" name="professor.sexo" value="${professor.sexo}"/>
+		<select class="selectBox" name='professor.sexo' id='sexo'>
+			<option id="select">Selecione um sexo</option>
+			
+			<c:forEach items="${carregaSexo}" var="sexo">  
+                <c:set var="sel" value="${professor.sexo eq sexo ? 'selected':''}"></c:set>  
+                <option value="${sexo}" ${sel}>${sexo.valor}</option>  
+            </c:forEach>
+		</select>
 	</div>
 </div>
 

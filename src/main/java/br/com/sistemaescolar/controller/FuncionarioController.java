@@ -16,6 +16,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.sistemaescolar.modelo.Funcionario;
+import br.com.sistemaescolar.modelo.Sexo;
 import br.com.sistemaescolar.service.FuncionarioService;
 
 /**
@@ -36,6 +37,7 @@ public class FuncionarioController {
 
 	@Path("/funcionario/novo")
 	public void novo() {
+		result.include("carregaSexo", Sexo.values());
 	}
 
 	@Post

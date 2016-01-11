@@ -14,7 +14,7 @@
 	<br/><br/><br/>
 	<div class="rodape">
 	<footer class="footer">
-		<p class="textoFooter">&copy; DL2D - Soluções e Serviços em Tecnologia 2015 - Fones: (99) 9.9999-9999</p>
+		<p class="textoFooter">&copy; DL2D - Soluções e Serviços em Tecnologia 2016 - Fones: (99) 9.9999-9999</p>
 	</footer>
 	</div>
 </body>

@@ -82,6 +82,20 @@
 </div>
 
 <div class="form-group">
+	<label class="col-sm-2 control-label" for="sexo">Sexo:</label>
+	<div class="col-sm-5">
+		<select class="selectBox" name='funcionario.sexo' id='sexo'>
+			<option id="select">Selecione um sexo</option>
+			
+			<c:forEach items="${carregaSexo}" var="sexo">  
+                <c:set var="sel" value="${funcionario.sexo eq sexo ? 'selected':''}"></c:set>  
+                <option value="${sexo}" ${sel}>${sexo.valor}</option>  
+            </c:forEach>
+		</select>
+	</div>
+</div>
+
+<div class="form-group">
 	<label class="col-sm-2 control-label" for="nomeBanco">Nome da Instituição Bancária:</label>
 	<div class="col-sm-5">
 		<input class="form-control" type="text" id="nomeBanco" name="funcionario.nomeBanco" value="${funcionario.nomeBanco}"/>

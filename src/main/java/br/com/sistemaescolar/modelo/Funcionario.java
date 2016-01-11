@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +24,7 @@ public class Funcionario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
 	private Long id;
-	
+
 	@Column(name = "NOME")
 	private String nome;
 
@@ -45,6 +47,10 @@ public class Funcionario {
 	@Column(name = "CELULAR")
 	private String celular;
 
+	@Column(name = "SEXO")
+	@Enumerated(EnumType.STRING)
+	private Sexo sexo;
+
 	@Column(name = "NOME_BANCO")
 	private String nomeBanco;
 
@@ -59,11 +65,11 @@ public class Funcionario {
 
 	@Column(name = "VALOR_SALARIO")
 	private Double valorSalario;
-	
+
 	@Temporal(value = TemporalType.DATE)
 	@Column(name = "DATA_CADASTRO")
 	private Date dataCadastro;
-	
+
 	@Temporal(value = TemporalType.DATE)
 	@Column(name = "DATA_NASCIMENTO")
 	private Date dataNascimento;
@@ -74,7 +80,7 @@ public class Funcionario {
 
 	public void setId(Long id) {
 		this.id = id;
-	}	
+	}
 
 	public String getNome() {
 		return nome;
@@ -132,6 +138,14 @@ public class Funcionario {
 		this.celular = celular;
 	}
 
+	public Sexo getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(Sexo sexo) {
+		this.sexo = sexo;
+	}
+
 	public String getNomeBanco() {
 		return nomeBanco;
 	}
@@ -187,5 +201,5 @@ public class Funcionario {
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-		
+
 }

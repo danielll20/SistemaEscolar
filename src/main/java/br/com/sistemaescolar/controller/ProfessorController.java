@@ -18,6 +18,7 @@ import br.com.caelum.vraptor.validator.Validator;
 import br.com.sistemaescolar.modelo.AtribuicaoDisciplina;
 import br.com.sistemaescolar.modelo.Disciplina;
 import br.com.sistemaescolar.modelo.Professor;
+import br.com.sistemaescolar.modelo.Sexo;
 import br.com.sistemaescolar.service.AtribuirDisciplanaService;
 import br.com.sistemaescolar.service.DisciplinaService;
 import br.com.sistemaescolar.service.ProfessorService;
@@ -43,9 +44,10 @@ public class ProfessorController {
 	
 	@Inject
 	private AtribuirDisciplanaService atribuirDisciplinaService;
-
+	
 	@Path("/professor/novo")
-	public void novo() {		
+	public void novo() {
+		result.include("carregaSexo", Sexo.values()); 
 	}
 
 	@Post

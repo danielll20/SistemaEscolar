@@ -20,7 +20,7 @@
 	<form name="formMatricula" action="${url}/matricula/adiciona" method="post" class="form-horizontal">
 		<%@include file="../matricula/form-inputs.jsp" %>			
 		<div class="botoes">
-			<input type="submit" value="Salvar" class="btn btn-primary"/>
+			<input type="submit" value="Efetuar Matrícula" class="btn btn-primary"/>
 			<input type="reset" value="Cancelar" class="btn btn-primary"/>					
 		</div>	
 	</form>
