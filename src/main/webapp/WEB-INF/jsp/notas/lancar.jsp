@@ -20,17 +20,17 @@
 	</div>
 	<br>
 	<div class="form-group">
-		<form name="formFrequencia" action="${url}/notas/aluno/pesquisar" method="get">
+		<form name="formFrequencia" action="${url}/notas/disciplina/pesquisar" method="get">
 			<label class="col-sm-1 control-label" for="turma">Curso/Turma:</label>
 			<div class="col-sm-3">
 				<select class="selectBox" name="id" id='matricula.turma.id'>
 					<option id="curso">Selecione o Curso/Turma</option>
 					<c:forEach items='${turmas}' var='turma'>
-						<option value='${turma.id}'
-							${turma.id == matricula.turma.id ? 'selected' : ''}>${turma.curso.nome} - ${turma.nome} - ${turma.turno}</option>
+						<option value='${turma.turma.id}'
+							${turma.turma.id == matricula.turma.id ? 'selected' : ''}>${turma.turma.curso.nome} - ${turma.turma.nome} - ${turma.turma.turno}</option>
 					</c:forEach>
 				</select>
-			</div>
+			</div>					
 			
 				<button type="submit" class="btn btn-primary">Pesquisar</button>
 	   </form>
@@ -49,7 +49,7 @@
 			</thead>
 	      
 			<tbody>			
-			  	<c:forEach items="${alunosPorCursoTurma}" var="alunosCurso">
+			  	<c:forEach items='${turmas}' var='turma'>
 			     <tr>		       
 			 	   <td style="width: 500px;">${alunosCurso.aluno.nome}</td>
 			 	   <td><input type="checkbox" name="alunosPorCursoTurma[${s.index}].id" value='${alunosCurso.aluno.id}'></td>	
