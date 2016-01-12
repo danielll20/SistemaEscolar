@@ -32,14 +32,15 @@
 		<class>br.com.sistemaescolar.modelo.Uf</class>
 		<class>br.com.sistemaescolar.modelo.Usuario</class>
 		<class>br.com.sistemaescolar.modelo.Situacao</class>
-		<class>br.com.sistemaescolar.modelo.AtribuicaoDisciplina</class>			
+		<class>br.com.sistemaescolar.modelo.AtribuicaoDisciplina</class>
+		<class>br.com.sistemaescolar.modelo.AtribuirProfessorTurma</class>			
 		
 		<properties>			
 			<!-- propriedades do hibernate -->
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.format_sql" value="false" />				
-<!-- 		<property name="hibernate.hbm2ddl.auto" value="update"/> -->
+<!-- 		<property name="hibernate.hbm2ddl.auto" value="create"/> -->
 		</properties>
 
 	</persistence-unit>
