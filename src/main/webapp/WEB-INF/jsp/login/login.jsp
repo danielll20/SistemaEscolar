@@ -22,7 +22,7 @@
 <%-- 	</c:forEach> --%>
 	
       <form class="form-signin" action="${url}/login/autentica" method="post">
-      	<h2 class="form-signin-heading">Sistema escolar Web</h2>
+      	<h2 class="form-signin-heading">Sistema Escolar Web</h2>
       	<br/>
         <h4 class="form-signin-heading">Login</h4>
         
