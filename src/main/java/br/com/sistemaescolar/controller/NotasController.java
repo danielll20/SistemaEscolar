@@ -8,9 +8,8 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
-import br.com.sistemaescolar.modelo.Matricula;
-import br.com.sistemaescolar.service.FrequenciaService;
-import br.com.sistemaescolar.service.TurmaService;
+import br.com.sistemaescolar.modelo.AtribuirProfessorTurma;
+import br.com.sistemaescolar.service.AtribuirProfessorTurmaService;
 
 /**
  * @author Daniel Freitas
@@ -20,26 +19,29 @@ import br.com.sistemaescolar.service.TurmaService;
 public class NotasController {
 
 	@Inject
-	private Result result;
+	private Result result;			
+		
+	@Inject
+	private AtribuirProfessorTurmaService atribuirProfessorTurmaService;
 	
 	@Inject
-	private FrequenciaService frequenciaService;			
-	
-	@Inject
-	private TurmaService turmaService;	
+	private UsuarioLogado usuarioLogado;
 	
 	@Get
 	@Path("/notas/lancar")	
 	public void lancar() {	
 		//Obs: Criar outro método para listar todas as Turmas 
 		//de acordo com o professor logado.
-		result.include("turmas", turmaService.listarTodas());
+		//result.include("turmas", turmaService.listarTodas());
+		List<AtribuirProfessorTurma> professorTurmas = atribuirProfessorTurmaService.listarTurmasPorUsuario(usuarioLogado.getUsuario().getId());
+		result.include("turmas", professorTurmas);
 	}
 	
-	@Get("/notas/aluno/pesquisar")
-	public void listarAlunosPorCursoTurma(Long id) {
-		List<Matricula> frequenciaAlunos = frequenciaService.listarAlunosPorCursoTurma(id);
-		result.include("alunosPorCursoTurma", frequenciaAlunos);
-		result.redirectTo(this).lancar();
+	@Get("/notas/disciplina/pesquisar")
+	public void listarDisciplinasPorCursoTurma(Long id) {
+//		List<AtribuirProfessorTurma> disciplinasPorTurmas = notasService.listarDisciplinasPorCursoTurma(id);
+//		List<Disciplina> frequenciaAlunos = frequenciaService.listarAlunosPorCursoTurma(id);
+//		result.include("disciplinasPorTurma", frequenciaAlunos);
+//		result.redirectTo(this).lancar();
 	}
 }
