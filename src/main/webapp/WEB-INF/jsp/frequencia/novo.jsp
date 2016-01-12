@@ -32,7 +32,7 @@
 					
 					<c:forEach items='${turmas}' var='exibeTurma'>
 						<option value='${exibeTurma.turma.id}'
-							${exibeTurma.id == matricula.turma.id ? 'selected' : ''}>${exibeTurma.turma.curso.nome} - ${exibeTurma.turma.nome} - ${exibeTurma.turma.turno}</option>
+							${exibeTurma.id == matricula.turma.id ? 'selected' : ''}>${exibeTurma.turma.curso.nome} - ${exibeTurma.turma.nome} - ${exibeTurma.turma.turno} </option>
 					</c:forEach>
 				</select>
 			</div>
