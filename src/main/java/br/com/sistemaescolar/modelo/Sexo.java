@@ -1,18 +1,51 @@
 package br.com.sistemaescolar.modelo;
 
-public enum Sexo {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-	M("Masculino"), F("Feminino");
+@Entity
+@Table(name = "sexo")
+public class Sexo {
+	
+	@Id @GeneratedValue
+	@Column(name = "ID")
+	private Long id;
+	
+	@Column(name = "DESCRICAO")
+	private String descricao;
 
-	private String valor;
-
-	private Sexo(String valor) {
-		this.valor = valor;
+	public Long getId() {
+		return id;
 	}
 
-	public String getValor() {
-		return valor;
+	public void setId(Long id) {
+		this.id = id;
 	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	
+	
+
+//	M("Masculino"), F("Feminino");
+//
+//	private String valor;
+//
+//	private Sexo(String valor) {
+//		this.valor = valor;
+//	}
+//
+//	public String getValor() {
+//		return valor;
+//	}
 	
 	
 

@@ -35,7 +35,7 @@
 <div class="form-group">
 	<label class="col-sm-2 control-label" for="dataNascimento">Data de Nascimento:</label>
 	<div class="col-sm-5">
-		<input class="form-control" type="text" id="dataNascimento" name="funcionario.dataNascimento" value="${funcionario.dataNascimento}"/>
+		<input class="form-control" type="text" id="dataNascimento" name="funcionario.dataNascimento" value="<fmt:formatDate value="${funcionario.dataNascimento}" dateStyle="medium" />"/>
 	</div>
 </div>
 
@@ -84,12 +84,12 @@
 <div class="form-group">
 	<label class="col-sm-2 control-label" for="sexo">Sexo:</label>
 	<div class="col-sm-5">
-		<select class="selectBox" name='funcionario.sexo' id='sexo'>
+		<select class="selectBox" name='funcionario.sexo.id' id='sexo'>
 			<option id="select">Selecione um sexo</option>
 			
 			<c:forEach items="${carregaSexo}" var="sexo">  
-                <c:set var="sel" value="${funcionario.sexo eq sexo ? 'selected':''}"></c:set>  
-                <option value="${sexo}" ${sel}>${sexo.valor}</option>  
+                <option value='${sexo.id}'
+					${sexo.id == funcionario.sexo.id ? 'selected' : ''}>${sexo.descricao}</option>  
             </c:forEach>
 		</select>
 	</div>

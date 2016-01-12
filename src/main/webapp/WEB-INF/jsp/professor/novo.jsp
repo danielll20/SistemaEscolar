@@ -36,14 +36,6 @@ function carregaDataAtual(){
 <body class="body" onload="carregaDataAtual()">
 	 <jsp:include page="../layout/menu.jsp"></jsp:include>
 	 
-	 <div id="error">	 
-		 <ul style="margin-left: 30px;">		 
-			 <c:forEach var="error" items="${errors}">	 	
-		    	<div style="height: 7px;"></div>${error.message}<div style="height: 7px;"></div>
-			 </c:forEach>	
-		</ul>
-	</div>
-	 
 	 <h3>Cadastro de Professor</h3>
     <br><br>  
 	<form name="formProfessor" action="${url}/professor/adiciona" method="post" class="form-horizontal">

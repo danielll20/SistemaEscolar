@@ -95,12 +95,12 @@
 <div class="form-group">
 	<label class="col-sm-2 control-label" for="sexo">Sexo:</label>
 	<div class="col-sm-5">
-		<select class="selectBox" name='aluno.sexo' id='sexo'>
+		<select class="selectBox" name='aluno.sexo.id' id='sexo'>
 			<option id="select">Selecione um sexo</option>
 			
 			<c:forEach items="${carregaSexo}" var="sexo">  
-                <c:set var="sel" value="${aluno.sexo eq sexo ? 'selected':''}"></c:set>  
-                <option value="${sexo}" ${sel}>${sexo.valor}</option>  
+                <option value='${sexo.id}'
+					${sexo.id == aluno.sexo.id ? 'selected' : ''}>${sexo.descricao}</option> 
             </c:forEach>
 		</select>
 	</div>

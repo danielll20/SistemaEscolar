@@ -18,10 +18,10 @@ import br.com.caelum.vraptor.validator.Validator;
 import br.com.sistemaescolar.modelo.AtribuicaoDisciplina;
 import br.com.sistemaescolar.modelo.Disciplina;
 import br.com.sistemaescolar.modelo.Professor;
-import br.com.sistemaescolar.modelo.Sexo;
 import br.com.sistemaescolar.service.AtribuirDisciplanaService;
 import br.com.sistemaescolar.service.DisciplinaService;
 import br.com.sistemaescolar.service.ProfessorService;
+import br.com.sistemaescolar.service.SexoService;
 
 /**
  * @author Leonardo Ribeiro
@@ -45,15 +45,22 @@ public class ProfessorController {
 	@Inject
 	private AtribuirDisciplanaService atribuirDisciplinaService;
 	
+	@Inject
+	private SexoService sexoService;
+	
 	@Path("/professor/novo")
 	public void novo() {
-		result.include("carregaSexo", Sexo.values()); 
+		carregaSexo();
+	}
+	
+	private void carregaSexo() {
+		result.include("carregaSexo", sexoService.listar());
 	}
 
 	@Post
 	public void adiciona(Professor professor) {
 		professorService.insert(professor);
-		result.redirectTo(ProfessorController.class).novo();
+		result.redirectTo(this).novo();
 	}
 	
 	@Get("/professor/listar")
@@ -65,6 +72,7 @@ public class ProfessorController {
 	@Get("/professor/{professor.id}")
 	public void atualizarFormulario(Professor professor) {
 		result.include("professor", professorService.buscarPorId(professor.getId()));
+		carregaSexo();
 	}
 	
 	@Post("/professor/{id}")

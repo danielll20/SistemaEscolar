@@ -17,8 +17,8 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.sistemaescolar.modelo.Aluno;
-import br.com.sistemaescolar.modelo.Sexo;
 import br.com.sistemaescolar.service.AlunoService;
+import br.com.sistemaescolar.service.SexoService;
 
 /**
  * @author Daniel Correia
@@ -36,10 +36,17 @@ public class AlunoController {
 
 	@Inject
 	private Validator validator;
+	
+	@Inject
+	private SexoService sexoService;
 
 	@Path("/aluno/novo")
 	public void novo() {
-		result.include("carregaSexo", Sexo.values()); 
+		carregaSexo(); 
+	}
+	
+	private void carregaSexo() {
+		result.include("carregaSexo", sexoService.listar());
 	}
 
 	@Post
@@ -60,6 +67,7 @@ public class AlunoController {
 	@Get("/aluno/{aluno.id}")
 	public void atualizarFormulario(Aluno aluno) {
 		Aluno alunoS = alunoService.buscarPorId(aluno.getId());
+		carregaSexo();
 		result.include("aluno", alunoS);		
 	}
 

@@ -8,8 +8,6 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -53,9 +51,9 @@ public class Aluno {
 	@Temporal(value = TemporalType.DATE)
 	@Column(name = "DATA_CADASTRO")
 	private Date dataCadastro;
-
-	@Column(name = "SEXO")
-	@Enumerated(EnumType.STRING) 
+	
+	@OneToOne
+	@JoinColumn(name = "ID_SEXO")
 	private Sexo sexo;
 
 	@Column(name = "CPF")

@@ -122,12 +122,11 @@
 <div class="form-group">
 	<label class="col-sm-2 control-label" for="sexo">Sexo:</label>
 	<div class="col-sm-5">
-		<select class="selectBox" name='professor.sexo' id='sexo'>
-			<option id="select">Selecione um sexo</option>
-			
+		<select class="selectBox" name="professor.sexo.id" id='sexo'>
+			<option id="select">Selecione um sexo</option>			
 			<c:forEach items="${carregaSexo}" var="sexo">  
-                <c:set var="sel" value="${professor.sexo eq sexo ? 'selected':''}"></c:set>  
-                <option value="${sexo}" ${sel}>${sexo.valor}</option>  
+                <option value='${sexo.id}'
+					${sexo.id == professor.sexo.id ? 'selected' : ''}>${sexo.descricao}</option>  
             </c:forEach>
 		</select>
 	</div>
@@ -161,3 +160,8 @@
 		name="professor.dataCadastro" value="<fmt:formatDate value="${professor.dataCadastro}" dateStyle="medium" /> " readonly="true"/>
 	</div>
 </div>
+
+
+
+
+

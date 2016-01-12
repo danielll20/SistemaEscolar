@@ -16,8 +16,8 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.sistemaescolar.modelo.Funcionario;
-import br.com.sistemaescolar.modelo.Sexo;
 import br.com.sistemaescolar.service.FuncionarioService;
+import br.com.sistemaescolar.service.SexoService;
 
 /**
  * @author Leonardo Ribeiro
@@ -34,10 +34,17 @@ public class FuncionarioController {
 
 	@Inject
 	private Validator validator;
+	
+	@Inject
+	private SexoService sexoService;	
 
 	@Path("/funcionario/novo")
 	public void novo() {
-		result.include("carregaSexo", Sexo.values());
+		carregaSexo();
+	}
+	
+	private void carregaSexo() {
+		result.include("carregaSexo", sexoService.listar());
 	}
 
 	@Post
@@ -55,6 +62,7 @@ public class FuncionarioController {
 	@Get("/funcionario/{funcionario.id}")
 	public void atualizarFormulario(Funcionario funcionario) {
 		result.include("funcionario", funcionarioService.buscarPorId(funcionario.getId()));
+		carregaSexo();
 	}
 
 	@Post("/funcionario/{id}")

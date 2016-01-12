@@ -5,8 +5,6 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -46,9 +44,9 @@ public class Funcionario {
 
 	@Column(name = "CELULAR")
 	private String celular;
-
-	@Column(name = "SEXO")
-	@Enumerated(EnumType.STRING)
+	
+	@OneToOne
+	@JoinColumn(name = "ID_SEXO")
 	private Sexo sexo;
 
 	@Column(name = "NOME_BANCO")
