@@ -41,12 +41,14 @@
 	               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastro<span class="caret"></span></a>
 	               <ul class="dropdown-menu">
 	                 <li><a href="${url}/aluno/novo">Aluno</a></li>
-	                 <li><a href="${url}/disciplina/novo">Disciplina</a></li>
-	                 <li><a href="${url}/funcionario/novo">Funcionário</a></li>
-	                 <li><a href="${url}/instituicao/novo">Instituição</a></li>
 	                 <li><a href="${url}/professor/novo">Professor</a></li>
+	                 <li><a href="${url}/funcionario/novo">Funcionário</a></li>
 	                 <li><a href="${url}/curso/novo">Curso</a></li>
 	                 <li><a href="${url}/turma/novo">Turma</a></li>
+	                 <li><a href="${url}/disciplina/novo">Disciplina</a></li>	                 
+	                 <li><a href="${url}/instituicao/novo">Instituição</a></li>
+	                 
+	                 
 	                                   
 	<!--                   <li role="separator" class="divider"></li> -->
 	<!--                   <li class="dropdown-header">Nav header</li> -->
